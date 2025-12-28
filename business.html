@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Business - Sanwei HR | Global Workforce Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 基础样式 - 与主页保持一致 */
+        :root {
+            --primary: #003366;
+            --secondary: #007BFF;
+            --accent: #FF6B35;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* 导航栏 */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-links a.active {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* 页面特定样式 */
+        .page-hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.9)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .page-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        /* 服务概览 */
+        .services-overview {
+            background: var(--light);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            background: var(--primary);
+            color: white;
+            font-size: 2.5rem;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* 服务详情 */
+        .service-detail {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .service-detail:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .service-text {
+            flex: 1;
+        }
+        
+        .service-text h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .service-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        /* 解决方案部分 */
+        .solutions {
+            background: var(--light);
+        }
+        
+        .solutions-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .tab {
+            padding: 15px 30px;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--secondary);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* 统计数据 */
+        .stats {
+            background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.9)), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1567&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .stat-item p {
+            font-size: 1.2rem;
+        }
+        
+        /* 客户评价 */
+        .testimonials {
+            background: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: """;
+            font-size: 5rem;
+            color: var(--secondary);
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* 联系表单 */
+        .contact-form {
+            background: var(--light);
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .compliance-notice {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        /* 页脚 */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .page-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .service-detail {
+                flex-direction: column;
+            }
+            
+            .service-detail:nth-child(even) {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .page-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .solutions-tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+                border-left: 3px solid transparent;
+            }
+            
+            .tab.active {
+                border-left: 3px solid var(--secondary);
+                border-bottom: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">Sanwei <span>HR</span></a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="business.html" class="active">For Business</a></li>
+                    <li><a href="individuals.html">For Individuals</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="cases.html">Case Studies</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 页面英雄区域 -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Enterprise HR Solutions</h1>
+            <p>Streamline your global expansion with our comprehensive workforce solutions. From labor dispatch to full HR outsourcing, we've got you covered.</p>
+            <a href="#contact" class="btn">Get a Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- 服务概览 -->
+    <section class="services-overview">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Business Services</h2>
+                <p>Comprehensive workforce solutions tailored to your organization's needs</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Global Labor Dispatch</h3>
+                        <p>Expand your business internationally with our compliant labor dispatch solutions across 20+ countries.</p>
+                        <a href="#contact" class="btn" style="margin-top: 15px;">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>HR Outsourcing</h3>
+                        <p>Focus on your core business while we handle payroll, benefits, compliance, and employee management.</p>
+                        <a href="#contact" class="btn" style="margin-top: 15px;">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Recruitment Process Outsourcing</h3>
+                        <p>End-to-end talent acquisition solutions that reduce time-to-hire and improve quality of candidates.</p>
+                        <a href="#contact" class="btn" style="margin-top: 15px;">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务详情 -->
+    <section class="service-details">
+        <div class="container">
+            <div class="service-detail">
+                <div class="service-text">
+                    <h2>Global Labor Dispatch</h2>
+                    <p>Our global labor dispatch service enables companies to quickly deploy talent anywhere in the world while ensuring full compliance with local labor laws and regulations.</p>
+                    <ul class="feature-list">
+                        <li>Rapid deployment of skilled professionals</li>
+                        <li>Full compliance with local employment laws</li>
+                        <li>Comprehensive visa and work permit assistance</li>
+                        <li>Multi-country payroll and benefits administration</li>
+                        <li>24/7 support for dispatched employees</li>
+                    </ul>
+                    <a href="#contact" class="btn">Request a Quote</a>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Global Labor Dispatch">
+                </div>
+            </div>
+            
+            <div class="service-detail">
+                <div class="service-text">
+                    <h2>HR Outsourcing Solutions</h2>
+                    <p>Our comprehensive HR outsourcing services allow you to focus on your core business while we handle the complexities of human resource management.</p>
+                    <ul class="feature-list">
+                        <li>End-to-end payroll processing</li>
+                        <li>Employee benefits administration</li>
+                        <li>Performance management systems</li>
+                        <li>Compliance and risk management</li>
+                        <li>HR technology platform access</li>
+                    </ul>
+                    <a href="#contact" class="btn">Explore HR Solutions</a>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="HR Outsourcing">
+                </div>
+            </div>
+            
+            <div class="service-detail">
+                <div class="service-text">
+                    <h2>Employee Training & Development</h2>
+                    <p>Invest in your workforce with our customized training programs designed to enhance skills, boost productivity, and drive organizational growth.</p>
+                    <ul class="feature-list">
+                        <li>Customized training curriculum development</li>
+                        <li>Leadership and management programs</li>
+                        <li>Technical skills enhancement</li>
+                        <li>Compliance and safety training</li>
+                        <li>Measurement of training effectiveness</li>
+                    </ul>
+                    <a href="#contact" class="btn">View Training Programs</a>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Employee Training">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 行业解决方案 -->
+    <section class="solutions">
+        <div class="container">
+            <div class="section-title">
+                <h2>Industry-Specific Solutions</h2>
+                <p>Tailored HR solutions for different industries and business needs</p>
+            </div>
+            
+            <div class="solutions-tabs">
+                <button class="tab active" data-tab="tech">Technology</button>
+                <button class="tab" data-tab="manufacturing">Manufacturing</button>
+                <button class="tab" data-tab="healthcare">Healthcare</button>
+                <button class="tab" data-tab="finance">Finance</button>
+            </div>
+            
+            <div class="tab-content active" id="tech">
+                <h3>HR Solutions for Technology Companies</h3>
+                <p>Tech companies face unique challenges in talent acquisition and retention. Our specialized solutions help you attract and retain top tech talent in a competitive market.</p>
+                <ul class="feature-list">
+                    <li>Specialized tech recruitment with technical screening</li>
+                    <li>Flexible staffing models for project-based work</li>
+                    <li>Competitive compensation benchmarking</li>
+                    <li>Remote workforce management solutions</li>
+                    <li>IP protection and confidentiality agreements</li>
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="manufacturing">
+                <h3>Workforce Solutions for Manufacturing</h3>
+                <p>Manufacturing operations require specialized workforce management. We provide solutions that ensure you have the right people with the right skills at the right time.</p>
+                <ul class="feature-list">
+                    <li>Skilled labor sourcing and dispatch</li>
+                    <li>Shift management and scheduling</li>
+                    <li>Safety training and compliance</li>
+                    <li>Seasonal workforce scaling</li>
+                    <li>Multi-site workforce coordination</li>
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="healthcare">
+                <h3>HR Solutions for Healthcare</h3>
+                <p>Healthcare organizations require specialized HR solutions that address regulatory compliance, credential verification, and patient care standards.</p>
+                <ul class="feature-list">
+                    <li>Credential verification and compliance</li>
+                    <li>Specialized medical staff recruitment</li>
+                    <li>24/7 staffing solutions</li>
+                    <li>Continuing education and certification</li>
+                    <li>Patient privacy and HIPAA compliance</li>
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="finance">
+                <h3>HR Solutions for Financial Services</h3>
+                <p>Financial institutions need HR partners who understand regulatory requirements and can source professionals with specific financial expertise.</p>
+                <ul class="feature-list">
+                    <li>Background checks and compliance screening</li>
+                    <li>Specialized financial talent acquisition</li>
+                    <li>Regulatory compliance training</li>
+                    <li>Contract and temporary staffing solutions</li>
+                    <li>Executive search and placement</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 统计数据 -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Enterprise Clients</p>
+                </div>
+                <div class="stat-item">
+                    <h3>20+</h3>
+                    <p>Countries of Operation</p>
+                </div>
+                <div class="stat-item">
+                    <h3>95%</h3>
+                    <p>Client Retention Rate</p>
+                </div>
+                <div class="stat-item">
+                    <h3>48h</h3>
+                    <p>Average Time to Fill Positions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户评价 -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Hear from businesses that have transformed their HR operations with our solutions</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"Sanwei HR helped us expand into three new markets in record time. Their global labor dispatch service saved us months of setup time and compliance headaches."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>CEO, TechGlobal Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"The HR outsourcing solution allowed us to focus on our core manufacturing operations while ensuring our employees received excellent support and benefits."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>HR Director, Precision Manufacturing</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"Their industry-specific approach to healthcare staffing has been invaluable. We've seen a 30% reduction in recruitment time and improved staff retention."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Client">
+                        </div>
+                        <div class="author-info">
+                            <h4>Dr. Robert Kim</h4>
+                            <p>Medical Director, City General Hospital</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系表单 -->
+    <section class="contact-form" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get Your Custom HR Solution</h2>
+                <p>Contact us today for a free consultation on how we can help your business</p>
+            </div>
+            
+            <div class="form-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company Name *</label>
+                        <input type="text" id="company" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Service of Interest</label>
+                        <select id="service" class="form-control">
+                            <option value="">Select a service</option>
+                            <option value="labor-dispatch">Global Labor Dispatch</option>
+                            <option value="hr-outsourcing">HR Outsourcing</option>
+                            <option value="rpo">Recruitment Process Outsourcing</option>
+                            <option value="training">Employee Training & Development</option>
+                            <option value="consulting">HR Consulting</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">How can we help your business? *</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%;">Request Free Consultation</button>
+                    
+                    <div class="compliance-notice">
+                        <p><strong>Compliance Notice:</strong> By submitting this form, you agree to our Privacy Policy and consent to be contacted by Sanwei HR. We do not engage in or support any illegal recruitment practices. All services are provided in full compliance with applicable laws and regulations.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sanwei HR</h3>
+                    <p>Your global partner in talent acquisition and workforce management. We bridge opportunities across borders with compliance and excellence.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="business.html">For Business</a></li>
+                        <li><a href="individuals.html">For Individuals</a></li>
+                        <li><a href="solutions.html">Our Solutions</a></li>
+                        <li><a href="cases.html">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a href="solutions.html#global-staffing">Global Staffing</a></li>
+                        <li><a href="solutions.html#hr-consulting">HR Consulting</a></li>
+                        <li><a href="solutions.html#ai-talent-matching">AI Talent Matching</a></li>
+                        <li><a href="solutions.html#skills-assessment">Skills Assessment</a></li>
+                        <li><a href="solutions.html#skills-development">Skills Development</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 45/F, 33 Hysan Ave, Causeway Bay, HK</li>
+                        <li><i class="fas fa-phone"></i> +852 31128888-1</li>
+                        <li><i class="fas fa-envelope"></i> service@whhbhc.xyz</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Sanwei HR. All Rights Reserved. | <a href="privacy.html" style="color: #ccc;">Privacy Policy</a> | <a href="userterms.html" style="color: #ccc;">Terms of Service</a> | <a href="compliance.html" style="color: #ccc;">Compliance Statement</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // 标签页功能
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // 移除所有active类
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // 添加active类到当前标签
+                tab.classList.add('active');
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // 表单提交处理
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 获取表单数据
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
+            
+            // 这里应该是发送到服务器的代码
+            // 现在只是显示成功消息
+            alert('Thank you for your inquiry! Our business solutions team will contact you within 24 hours.');
+            document.getElementById('contactForm').reset();
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动端菜单
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
