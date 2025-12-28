@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="tr-TR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Politikası - Hiwork Türkiye</title>
+    <style>
+        /* 土耳其风格配色 */
+        :root {
+            --primary: #E30A17; /* 土耳其国旗红 */
+            --secondary: #C10713; /* 深土耳其红 */
+            --accent: #FF6B35; /* 活力的橙色 */
+            --light: #FFFFFF;
+            --dark: #1A1A2E; /* 深蓝黑色背景 */
+            --gray-50: #F8F9FA;
+            --gray-100: #E9ECEF;
+            --gray-200: #DEE2E6;
+            --gray-300: #CED4DA;
+            --gray-600: #6C757D;
+            --gray-700: #495057;
+            --gray-800: #343A40;
+            --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary));
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --radius-md: 8px;
+            --shadow-sm: 0 2px 5px rgba(227, 10, 23, 0.1);
+            --shadow-md: 0 4px 10px rgba(227, 10, 23, 0.15);
+            --transition-base: 0.25s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background-color: var(--light);
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100 50c-15 0-30 15-30 30s15 30 30 30 30-15 30-30-15-30-30-30z' fill='%23E30A17' fill-opacity='0.02'/%3E%3Cpath d='M60 80c-10 0-20 10-20 20s10 20 20 20 20-10 20-20-10-20-20-20z' fill='%23C10713' fill-opacity='0.02'/%3E%3C/svg%3E");
+            background-size: 300px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部样式 */
+        .privacy-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .privacy-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .privacy-header .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .privacy-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .privacy-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary) 50%, var(--light) 50%, var(--light) 100%);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .privacy-logo-icon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            transform: translate(-50%, 80%);
+        }
+
+        .privacy-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .privacy-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* 内容区域 */
+        .privacy-content {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 3rem;
+            border: 1px solid var(--gray-200);
+        }
+
+        @media (max-width: 768px) {
+            .privacy-content {
+                padding: 2rem;
+            }
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--primary);
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '★';
+            position: absolute;
+            left: -15px;
+            color: var(--primary);
+            font-size: 0.9em;
+        }
+
+        .section-content {
+            line-height: 1.8;
+            color: var(--gray-700);
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content ul, .section-content ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+        }
+
+        .section-content li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .section-content li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: -1rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(227, 10, 23, 0.05), rgba(255, 107, 53, 0.05));
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .info-table th {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .info-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .info-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .info-table tr:hover {
+            background: rgba(227, 10, 23, 0.02);
+        }
+
+        /* 重要通知 */
+        .important-notice {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 152, 0, 0.1));
+            border: 2px solid #FF9800;
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            position: relative;
+        }
+
+        .important-notice::before {
+            content: '!';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #FF9800;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .important-title {
+            color: #E65100;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        /* 联系信息 */
+        .contact-info {
+            background: linear-gradient(135deg, rgba(227, 10, 23, 0.05), rgba(193, 7, 19, 0.05));
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(227, 10, 23, 0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-base);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* 页脚 */
+        .privacy-footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 3px solid var(--primary);
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition-base);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            background: rgba(227, 10, 23, 0.2);
+        }
+
+        .footer-disclaimer {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            max-width: 800px;
+            margin: 2rem auto 0;
+            line-height: 1.6;
+        }
+
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: var(--transition-base);
+            border: 2px solid transparent;
+        }
+
+        .back-to-home:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        /* 打印样式 */
+        @media print {
+            .privacy-header, .privacy-footer, .back-to-home {
+                display: none;
+            }
+            
+            .privacy-content {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+            }
+            
+            body {
+                background: white;
+                font-size: 12pt;
+            }
+        }
+
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            .privacy-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .info-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="privacy-header">
+        <div class="container">
+            <a href="/" class="privacy-logo">
+                <div class="privacy-logo-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                Hiwork Türkiye
+            </a>
+            <h1 class="privacy-title">Gizlilik Politikası</h1>
+            <p class="privacy-subtitle">Kişisel verilerinizin korunması ve gizliliğiniz bizim için en öncelikli konulardan biridir. Bu politika, Hiwork Türkiye'nin kişisel verileri nasıl topladığını, kullandığını ve koruduğunu açıklar.</p>
+            <div class="last-updated">
+                <i class="fas fa-calendar-alt"></i>
+                Son Güncelleme: 15 Kasım 2024
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="privacy-content">
+            <div class="important-notice">
+                <h3 class="important-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Önemli Uyarı
+                </h3>
+                <p>Bu gizlilik politikası, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) ve Türkiye Cumhuriyeti ilgili mevzuatına uygun olarak hazırlanmıştır. Politikamızı dikkatlice okuyun ve anlayın.</p>
+            </div>
+
+            <section class="section" id="data-collection">
+                <h2 class="section-title">1. Hangi Verileri Topluyoruz?</h2>
+                <div class="section-content">
+                    <p>Hiwork Türkiye olarak, aşağıdaki kişisel verileri yasal dayanaklara uygun olarak toplamaktayız:</p>
+                    
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-user-check"></i> Kimlik Bilgileri</h4>
+                        <ul>
+                            <li>Ad ve soyad</li>
+                            <li>Telefon numarası (Türkiye formatında)</li>
+                            <li>Yaş bilgisi (18-70 arası)</li>
+                            <li>Çalışma izni bilgisi</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-briefcase"></i> İş Başvuru Bilgileri</h4>
+                        <ul>
+                            <li>Tercih edilen iş pozisyonları</li>
+                            <li>Çalışma saatleri tercihleri</li>
+                            <li>Beklenen ücret aralığı</li>
+                            <li>Önceden edinilmiş beceriler (varsa)</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-chart-line"></i> Otomatik Toplanan Veriler</h4>
+                        <ul>
+                            <li>IP adresi ve cihaz bilgileri</li>
+                            <li>Tarayıcı türü ve işletim sistemi</li>
+                            <li>Site kullanım istatistikleri</li>
+                            <li>Çerez verileri (aşağıda açıklanmıştır)</li>
+                        </ul>
+                    </div>
+
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th>Veri Türü</th>
+                                <th>Toplama Amacı</th>
+                                <th>Yasal Dayanak</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>İletişim Bilgileri</td>
+                                <td>İş eşleştirme sürecinde iletişim kurmak</td>
+                                <td>Açık rıza ve sözleşme gerekliliği</td>
+                            </tr>
+                            <tr>
+                                <td>Başvuru Bilgileri</td>
+                                <td>Uygun iş fırsatları ile eşleştirme yapmak</td>
+                                <td>Açık rıza ve meşru menfaat</td>
+                            </tr>
+                            <tr>
+                                <td>Teknik Veriler</td>
+                                <td>Site performansını iyileştirmek</td>
+                                <td>Meşru menfaat</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="section" id="data-usage">
+                <h2 class="section-title">2. Verilerinizi Nasıl Kullanıyoruz?</h2>
+                <div class="section-content">
+                    <p>Topladığımız verileri aşağıdaki amaçlarla kullanmaktayız:</p>
+                    
+                    <ol>
+                        <li><strong>İş Eşleştirme Hizmeti:</strong> Sizi uygun işverenlerle eşleştirmek için</li>
+                        <li><strong>Müşteri Desteği:</strong> Sorularınızı yanıtlamak ve yardım sağlamak için</li>
+                        <li><strong>Hizmet Geliştirme:</strong> Platformumuzu iyileştirmek ve yeni özellikler eklemek için</li>
+                        <li><strong>Yasal Yükümlülükler:</strong> Türk mevzuatı gereği gerekli kayıtları tutmak için</li>
+                        <li><strong>Güvenlik:</strong> Sahte başvuruları ve kötüye kullanımı önlemek için</li>
+                    </ol>
+
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-handshake"></i> İşverenlerle Veri Paylaşımı</h4>
+                        <p>Sadece sizinle iletişime geçmek ve iş görüşmesi yapmak isteyen onaylı işverenlerle temel bilgilerinizi (ad, telefon, başvurduğunuz pozisyon) paylaşırız. Detaylı kişisel verileriniz asla üçüncü taraflarla paylaşılmaz.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="data-protection">
+                <h2 class="section-title">3. Veri Güvenliği ve Koruma</h2>
+                <div class="section-content">
+                    <p>Kişisel verilerinizin güvenliğini sağlamak için aşağıdaki önlemleri almaktayız:</p>
+                    
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-shield-alt"></i> Teknik Önlemler</h4>
+                        <ul>
+                            <li>SSL şifreleme ile güvenli veri aktarımı</li>
+                            <li>Güvenlik duvarları ve DDoS koruması</li>
+                            <li>Düzenli güvenlik denetimleri ve testleri</li>
+                            <li>Şifreli veri saklama sistemleri</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-user-lock"></i> Organizasyonel Önlemler</h4>
+                        <ul>
+                            <li>Personel gizlilik eğitimleri</li>
+                            <li>Sınırlı erişim yetkileri</li>
+                            <li>Veri işleme protokolleri</li>
+                            <li>Düzenli denetim ve izleme</li>
+                        </ul>
+                    </div>
+
+                    <p><strong>Veri Saklama Süreleri:</strong> Kişisel verileriniz, hizmet sunumu süresince ve Türk mevzuatı gereği zorunlu tutulma süreleri boyunca saklanır. İlişkinizin sona ermesi durumunda, verileriniz yasal süreler dolduktan sonra güvenli bir şekilde silinir veya anonim hale getirilir.</p>
+                </div>
+            </section>
+
+            <section class="section" id="cookies">
+                <h2 class="section-title">4. Çerez Politikası</h2>
+                <div class="section-content">
+                    <p>Web sitemiz, kullanıcı deneyiminizi iyileştirmek için çerezler kullanmaktadır:</p>
+                    
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th>Çerez Türü</th>
+                                <th>Amaç</th>
+                                <th>Saklama Süresi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Zorunlu Çerezler</td>
+                                <td>Sitenin temel işlevlerini çalıştırmak</td>
+                                <td>Oturum süresi</td>
+                            </tr>
+                            <tr>
+                                <td>Performans Çerezleri</td>
+                                <td>Site performansını analiz etmek</td>
+                                <td>24 ay</td>
+                            </tr>
+                            <tr>
+                                <td>İşlevsellik Çerezleri</td>
+                                <td>Kullanıcı tercihlerini hatırlamak</td>
+                                <td>12 ay</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>Çerezleri tarayıcınızın ayarlarından kontrol edebilir veya devre dışı bırakabilirsiniz. Ancak bazı çerezler devre dışı bırakıldığında, web sitemizin bazı özellikleri düzgün çalışmayabilir.</p>
+                </div>
+            </section>
+
+            <section class="section" id="user-rights">
+                <h2 class="section-title">5. KVKK Kapsamındaki Haklarınız</h2>
+                <div class="section-content">
+                    <p>6698 sayılı Kişisel Verilerin Korunması Kanunu uyarınca aşağıdaki haklara sahipsiniz:</p>
+                    
+                    <div class="highlight-box">
+                        <ul>
+                            <li><strong>Bilgi Edinme Hakkı:</strong> Verilerinizin işlenip işlenmediğini öğrenme</li>
+                            <li><strong>Erişim Hakkı:</strong> İşlenen verilerinize erişim talep etme</li>
+                            <li><strong>Düzeltme Hakkı:</strong> Yanlış veya eksik verilerin düzeltilmesini talep etme</li>
+                            <li><strong>Silme Hakkı:</strong> Verilerinizin silinmesini talep etme</li>
+                            <li><strong>İtiraz Hakkı:</strong> Veri işleme faaliyetine itiraz etme</li>
+                            <li><strong>Şikayet Hakkı:</strong> Kişisel Verileri Koruma Kurumu'na şikayette bulunma</li>
+                        </ul>
+                    </div>
+
+                    <p>Haklarınızı kullanmak için aşağıdaki iletişim bilgilerinden bize ulaşabilirsiniz. Başvurunuz en geç 30 gün içinde ücretsiz olarak sonuçlandırılacaktır.</p>
+                </div>
+            </section>
+
+            <section class="section" id="contact">
+                <h2 class="section-title">6. İletişim ve Başvuru</h2>
+                <div class="section-content">
+                    <p>Gizlilik politikamızla ilgili her türlü soru, görüş ve talebiniz için aşağıdaki iletişim kanallarından bize ulaşabilirsiniz:</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>E-posta</h4>
+                                <p>gizlilik@hiworkturkiye.com</p>
+                                <small>KVKK başvuruları için</small>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Telefon</h4>
+                                <p>+90 850 123 4567</p>
+                                <small>Hafta içi 09:00-18:00</small>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Adres</h4>
+                                <p>Hiwork Türkiye Veri Sorumlusu</p>
+                                <p>Maslak Mah. Büyükdere Cad. No:123</p>
+                                <p>Şişli/İstanbul - TÜRKİYE</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p><strong>Veri Sorumlusu:</strong> Hiwork Türkiye Yazılım ve Danışmanlık Ltd. Şti.</p>
+                    <p><strong>MERSIS No:</strong> 0123-4567-8901-2345</p>
+                </div>
+            </section>
+
+            <section class="section" id="updates">
+                <h2 class="section-title">7. Politika Güncellemeleri</h2>
+                <div class="section-content">
+                    <p>Bu gizlilik politikası, yasal gereklilikler, teknolojik gelişmeler veya iş süreçlerimizdeki değişiklikler nedeniyle güncellenebilir. Önemli değişiklikler durumunda, sizi e-posta veya web sitemizdeki bildirimler yoluyla bilgilendireceğiz.</p>
+                    
+                    <p>Politikanın güncel versiyonu her zaman bu sayfada yayınlanacaktır. Değişikliklerin yayın tarihinden itibaren geçerli olacağını kabul etmektesiniz.</p>
+                    
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-history"></i> Değişiklik Geçmişi</h4>
+                        <ul>
+                            <li><strong>15 Kasım 2024:</strong> Yeni KVKK uyumlu politika yayınlandı</li>
+                            <li><strong>01 Eylül 2024:</strong> Çerez politikası güncellendi</li>
+                            <li><strong>15 Temmuz 2024:</strong> İlk versiyon yayınlandı</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="/" class="back-to-home">
+                <i class="fas fa-arrow-left"></i>
+                Ana Sayfaya Dön
+            </a>
+        </div>
+    </main>
+
+    <footer class="privacy-footer">
+        <div class="container">
+            <div class="footer-logo">Hiwork Türkiye</div>
+            <p>Profesyonel Uzaktan Çalışma Platformu</p>
+            
+            <div class="footer-links">
+                <a href="/userterms.html"><i class="fas fa-file-contract"></i> Kullanım Şartları</a>
+                <a href="/compliance.html"><i class="fas fa-gavel"></i> Yasal Uyumluluk</a>
+                <a href="/cookies.html"><i class="fas fa-cookie-bite"></i> Çerez Politikası</a>
+                <a href="/contact.html"><i class="fas fa-headset"></i> İletişim</a>
+            </div>
+
+            <div class="footer-disclaimer">
+                <p>© 2024 Hiwork Türkiye. Tüm hakları saklıdır. Bu gizlilik politikası, 6698 sayılı Kişisel Verilerin Korunması Kanunu'na ve Türkiye Cumhuriyeti ilgili mevzuatına uygun olarak hazırlanmıştır.</p>
+                <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Türkiye'nin her yerinden hizmet vermekteyiz
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sayfa yüklendiğinde tarih bilgisini güncelle
+        document.addEventListener('DOMContentLoaded', function() {
+            // Son güncelleme tarihini otomatik ayarla
+            const updateDate = new Date();
+            const formattedDate = updateDate.toLocaleDateString('tr-TR', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+            
+            // Tüm bölümlere tıklanabilir özellik ekle
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const title = section.querySelector('.section-title');
+                title.style.cursor = 'pointer';
+                title.addEventListener('click', () => {
+                    section.classList.toggle('expanded');
+                });
+            });
+            
+            // Yazdırma butonu ekle (isteğe bağlı)
+            const printButton = document.createElement('button');
+            printButton.innerHTML = '<i class="fas fa-print"></i> Yazdır';
+            printButton.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: var(--primary);
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+                z-index: 1000;
+                font-family: inherit;
+            `;
+            printButton.addEventListener('click', () => window.print());
+            document.body.appendChild(printButton);
+        });
+    </script>
+</body>
+</html>
