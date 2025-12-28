@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Talent Matching - Sanwei HR | Intelligent Job Matching</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 基础样式 - 与主页保持一致 */
+        :root {
+            --primary: #003366;
+            --secondary: #007BFF;
+            --accent: #FF6B35;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* 导航栏 */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--secondary);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a.active {
+            color: var(--secondary);
+        }
+        
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* AI匹配页面特定样式 */
+        .ai-hero {
+            background: linear-gradient(135deg, #003366 0%, #004080 50%, #005099 100%);
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ai-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+        
+        .ai-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .ai-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        /* AI匹配流程 */
+        .ai-process {
+            background: white;
+            position: relative;
+        }
+        
+        .process-container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 60px 0;
+        }
+        
+        .process-container:before {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            z-index: 1;
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            max-width: 200px;
+        }
+        
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+            transition: var(--transition);
+        }
+        
+        .process-step:hover .step-icon {
+            transform: scale(1.1);
+            background: var(--accent);
+        }
+        
+        .step-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* AI匹配演示 */
+        .ai-demo {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .demo-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .demo-content {
+            flex: 1;
+        }
+        
+        .demo-content h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .demo-visualization {
+            flex: 1;
+            height: 400px;
+            position: relative;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        /* 匹配节点动画 */
+        .node {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: all 0.5s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .candidate-node {
+            background: var(--secondary);
+            top: 50px;
+            left: 50px;
+        }
+        
+        .job-node {
+            background: var(--accent);
+            top: 50px;
+            right: 50px;
+        }
+        
+        .match-node {
+            background: #28a745;
+            top: 170px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+        }
+        
+        .connection-line {
+            position: absolute;
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            transform-origin: left center;
+            opacity: 0;
+        }
+        
+        /* 技术特性 */
+        .ai-features {
+            background: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover::before {
+            left: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* 成功指标 */
+        .success-metrics {
+            background: linear-gradient(135deg, var(--primary) 0%, #FF6B35 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .metric-item {
+            padding: 30px;
+        }
+        
+        .metric-item h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .metric-item p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* 页脚 */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .ai-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .demo-container {
+                flex-direction: column;
+            }
+            
+            .process-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .process-container:before {
+                display: none;
+            }
+            
+            .process-step {
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .ai-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .ai-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">Sanwei <span>HR</span></a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="business.html">For Business</a></li>
+                    <li><a href="individuals.html">For Individuals</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="cases.html">Case Studies</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- AI匹配英雄区域 -->
+    <section class="ai-hero">
+        <div class="container">
+            <h1>AI-Powered Talent Matching</h1>
+            <p>Revolutionizing recruitment with intelligent algorithms that connect the right talent with the right opportunities</p>
+            <a href="#demo" class="btn">See How It Works</a>
+        </div>
+    </section>
+
+    <!-- AI匹配流程 -->
+    <section class="ai-process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Intelligent Matching Process</h2>
+                <p>Our AI algorithm analyzes multiple dimensions to ensure perfect job-candidate compatibility</p>
+            </div>
+            
+            <div class="process-container">
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>Profile Analysis</h3>
+                        <p>Deep analysis of candidate skills, experience, and preferences</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>Job Analysis</h3>
+                        <p>Comprehensive understanding of role requirements and company culture</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>AI Matching</h3>
+                        <p>Advanced algorithms identify optimal matches across multiple dimensions</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>Perfect Match</h3>
+                        <p>High-quality connections that benefit both candidates and employers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI匹配演示 -->
+    <section class="ai-demo" id="demo">
+        <div class="container">
+            <div class="demo-container">
+                <div class="demo-content">
+                    <h2>See Our AI in Action</h2>
+                    <p>Watch how our intelligent system analyzes candidate profiles and job requirements to create perfect matches in real-time.</p>
+                    <p>Our algorithm considers skills compatibility, cultural fit, career aspirations, and market trends to ensure long-term success.</p>
+                    <a href="#contact" class="btn" style="margin-top: 20px;">Try AI Matching</a>
+                </div>
+                
+                <div class="demo-visualization">
+                    <!-- 动态匹配演示 -->
+                    <div class="node candidate-node">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="node job-node">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="node match-node">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="connection-line line-1"></div>
+                    <div class="connection-line line-2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术特性 -->
+    <section class="ai-features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Advanced AI Capabilities</h2>
+                <p>Powered by cutting-edge technology for superior matching results</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Machine Learning</h3>
+                    <p>Our system continuously learns from successful placements to improve matching accuracy over time.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Multi-dimensional Analysis</h3>
+                    <p>We evaluate skills, experience, personality, cultural fit, and career goals for comprehensive matching.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Real-time Processing</h3>
+                    <p>Instant analysis and matching capabilities that adapt to changing candidate and job market conditions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Bias Reduction</h3>
+                    <p>Advanced algorithms minimize unconscious bias to promote diversity and equal opportunity.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Predictive Analytics</h3>
+                    <p>Forecast candidate success and job satisfaction based on historical data and trend analysis.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Reach</h3>
+                    <p>Cross-cultural matching capabilities that work across different countries and industries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 成功指标 -->
+    <section class="success-metrics">
+        <div class="container">
+            <div class="section-title">
+                <h2>Proven Results</h2>
+                <p>Our AI-powered matching delivers measurable improvements in recruitment outcomes</p>
+            </div>
+            
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <h3>85%</h3>
+                    <p>Higher Retention Rate</p>
+                </div>
+                <div class="metric-item">
+                    <h3>65%</h3>
+                    <p>Faster Hiring Process</p>
+                </div>
+                <div class="metric-item">
+                    <h3>92%</h3>
+                    <p>Candidate Satisfaction</p>
+                </div>
+                <div class="metric-item">
+                    <h3>78%</h3>
+                    <p>Employer Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系部分 -->
+    <section class="contact-form" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience AI-Powered Matching</h2>
+                <p>Get started with our intelligent talent matching platform today</p>
+            </div>
+            
+            <div class="form-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company / Organization</label>
+                        <input type="text" id="company" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interest">I am interested in</label>
+                        <select id="interest" class="form-control">
+                            <option value="">Select an option</option>
+                            <option value="business">AI Matching for Business</option>
+                            <option value="individual">AI Career Matching</option>
+                            <option value="demo">Platform Demo</option>
+                            <option value="partnership">Partnership Opportunities</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">How can we help you?</label>
+                        <textarea id="message" class="form-control" placeholder="Tell us about your talent matching needs..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%;">Request AI Matching Demo</button>
+                    
+                    <div class="compliance-notice">
+                        <p><strong>Privacy Notice:</strong> By submitting this form, you agree to our Privacy Policy and consent to be contacted by Sanwei HR. We do not engage in or support any illegal recruitment practices. All services are provided in full compliance with applicable laws and regulations.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sanwei HR</h3>
+                    <p>Your global partner in talent acquisition and career development. We bridge opportunities across borders with compliance and excellence.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="business.html">For Business</a></li>
+                        <li><a href="individuals.html">For Individuals</a></li>
+                        <li><a href="solutions.html">Our Solutions</a></li>
+                        <li><a href="cases.html">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">AI Talent Matching</a></li>
+                        <li><a href="solutions.html#global-staffing">Global Staffing</a></li>
+                        <li><a href="solutions.html#hr-consulting">HR Consulting</a></li>
+                        <li><a href="solutions.html#skills-assessment">Skills Assessment</a></li>
+                        <li><a href="solutions.html#skills-development">Skills Development</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Global City</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> ai@sanwei-hr.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Sanwei HR. All Rights Reserved. | <a href="privacy.html" style="color: #ccc;">Privacy Policy</a> | <a href="userterms.html" style="color: #ccc;">Terms of Service</a> | <a href="compliance.html" style="color: #ccc;">Compliance Statement</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // AI匹配演示动画
+        function startAIDemo() {
+            const candidateNode = document.querySelector('.candidate-node');
+            const jobNode = document.querySelector('.job-node');
+            const matchNode = document.querySelector('.match-node');
+            const line1 = document.querySelector('.line-1');
+            const line2 = document.querySelector('.line-2');
+            
+            // 重置状态
+            candidateNode.style.transform = 'translate(0, 0)';
+            jobNode.style.transform = 'translate(0, 0)';
+            matchNode.style.opacity = '0';
+            line1.style.opacity = '0';
+            line2.style.opacity = '0';
+            line1.style.width = '0';
+            line2.style.width = '0';
+            
+            // 动画序列
+            setTimeout(() => {
+                // 节点移动
+                candidateNode.style.transform = 'translate(50px, 60px)';
+                jobNode.style.transform = 'translate(-50px, 60px)';
+                
+                setTimeout(() => {
+                    // 连接线1出现
+                    line1.style.opacity = '1';
+                    line1.style.width = '200px';
+                    line1.style.left = '110px';
+                    line1.style.top = '80px';
+                    line1.style.transform = 'rotate(30deg)';
+                    
+                    setTimeout(() => {
+                        // 连接线2出现
+                        line2.style.opacity = '1';
+                        line2.style.width = '200px';
+                        line2.style.left = '290px';
+                        line2.style.top = '80px';
+                        line2.style.transform = 'rotate(-30deg)';
+                        
+                        setTimeout(() => {
+                            // 匹配节点出现
+                            matchNode.style.opacity = '1';
+                            matchNode.style.transform = 'translateX(-50%) scale(1.2)';
+                            
+                            setTimeout(() => {
+                                matchNode.style.transform = 'translateX(-50%) scale(1)';
+                                
+                                // 5秒后重新开始动画
+                                setTimeout(startAIDemo, 5000);
+                            }, 500);
+                        }, 500);
+                    }, 500);
+                }, 1000);
+            }, 1000);
+        }
+        
+        // 页面加载后开始演示
+        document.addEventListener('DOMContentLoaded', function() {
+            startAIDemo();
+        });
+        
+        // 表单提交处理
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 获取表单数据
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                interest: document.getElementById('interest').value,
+                message: document.getElementById('message').value
+            };
+            
+            // 这里应该是发送到服务器的代码
+            // 现在只是显示成功消息
+            alert('Thank you for your interest in our AI Matching platform! Our team will contact you within 24 hours to schedule a demo.');
+            document.getElementById('contactForm').reset();
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动端菜单
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
