@@ -1,25 +1,26 @@
-  <!-- 科技感配色 - 北极光主题 -->
+  <!-- 土耳其科技感配色 - 传统与现代结合 -->
   
     :root {
-      /* 科技感配色 - 北极光与枫叶结合 */
-      --primary: #0066CC; /* 科技蓝 */
-      --secondary: #00B4D8; /* 北极光蓝 */
-      --accent: #FF6B35; /* 枫叶橙 */
-      --dark-accent: #CC5500; /* 深枫叶色 */
+      /* 土耳其配色 - 国旗红色与现代化的结合 */
+      --primary: #E30A17; /* 土耳其国旗红 */
+      --secondary: #C10713; /* 深土耳其红 */
+      --accent: #FF6B35; /* 活力的橙色点缀 */
+      --dark-accent: #D45700; /* 深橙色 */
       --light: #FFFFFF;
-      --dark: #0A2342; /* 深夜蓝 */
-      --gray-50: #F8FAFC;
-      --gray-100: #F1F5F9;
-      --gray-200: #E2E8F0;
-      --gray-300: #CBD5E1;
-      --gray-600: #64748B;
-      --gray-700: #475569;
-      --gray-800: #334155;
+      --dark: #1A1A2E; /* 深蓝黑色背景 */
+      --gray-50: #F8F9FA;
+      --gray-100: #E9ECEF;
+      --gray-200: #DEE2E6;
+      --gray-300: #CED4DA;
+      --gray-600: #6C757D;
+      --gray-700: #495057;
+      --gray-800: #343A40;
       
-      /* 渐变色彩 */
+      /* 新月和星星渐变 */
       --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary));
       --gradient-accent: linear-gradient(135deg, var(--accent), var(--dark-accent));
-      --gradient-dark: linear-gradient(135deg, var(--dark), #1E3A5F);
+      --gradient-dark: linear-gradient(135deg, #1A1A2E, #2D2D44);
+      --gradient-crescent: linear-gradient(135deg, #E30A17 0%, #E30A17 50%, #FFFFFF 50%, #FFFFFF 100%);
       
       /* 字体 */
       --font-heading: 'Poppins', sans-serif;
@@ -38,11 +39,11 @@
       --radius-lg: 12px;
       --radius-full: 9999px;
       
-      /* 阴影 */
-      --shadow-sm: 0 2px 5px rgba(0, 102, 204, 0.1);
-      --shadow-md: 0 4px 10px rgba(0, 102, 204, 0.15);
-      --shadow-lg: 0 6px 18px rgba(0, 102, 204, 0.2);
-      --shadow-glow: 0 0 15px rgba(0, 180, 216, 0.3);
+      /* 阴影 - 红色调 */
+      --shadow-sm: 0 2px 5px rgba(227, 10, 23, 0.1);
+      --shadow-md: 0 4px 10px rgba(227, 10, 23, 0.15);
+      --shadow-lg: 0 6px 18px rgba(227, 10, 23, 0.2);
+      --shadow-glow: 0 0 15px rgba(227, 10, 23, 0.3);
       
       /* 过渡效果 */
       --transition-fast: 0.15s ease;
@@ -133,11 +134,27 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '★';
+      position: absolute;
+      right: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--primary);
+      font-size: 0.8em;
     }
     
     @media (max-width: 768px) {
       .section-title {
         font-size: 1.5rem;
+      }
+      
+      .section-title::after {
+        right: -20px;
       }
     }
     
@@ -170,12 +187,14 @@
       box-shadow: var(--shadow-md);
       position: relative;
       overflow: hidden;
+      border: 2px solid transparent;
     }
     
     .btn-primary:hover {
       transform: translateY(-3px);
       box-shadow: var(--shadow-lg);
-      background: linear-gradient(135deg, #0055AA, #0099CC);
+      background: linear-gradient(135deg, #C10713, #E30A17);
+      border-color: rgba(255, 255, 255, 0.3);
     }
     
     .btn-primary:active {
@@ -189,7 +208,7 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
       transition: 0.5s;
     }
     
@@ -227,11 +246,11 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0, 102, 204, 0.1);
+      border-bottom: 1px solid rgba(227, 10, 23, 0.1);
       padding: 0.6rem 0;
-      box-shadow: 0 2px 10px rgba(0, 102, 204, 0.1);
+      box-shadow: 0 2px 10px rgba(227, 10, 23, 0.1);
     }
     
     .nav {
@@ -260,13 +279,27 @@
     .logo-icon {
       width: 36px;
       height: 36px;
-      background: var(--gradient-primary);
+      background: var(--gradient-crescent);
       border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
       box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .logo-icon::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      transform: translate(-50%, 80%);
     }
     
     .nav-links {
@@ -318,7 +351,7 @@
       }
     }
     
-    /* 移动端CTA按钮 - 已修改为带APPLY字样的按钮 */
+    /* 移动端CTA按钮 */
     .mobile-cta-btn {
       display: none;
     }
@@ -352,8 +385,6 @@
       }
     }
     
-    /* 已删除移动端汉堡菜单相关样式 */
-    
     /* === 移动端悬浮按钮 === */
     .floating-cta {
       display: none;
@@ -365,7 +396,7 @@
       width: 90%;
       max-width: 400px;
       animation: floatUp 0.5s ease;
-      box-shadow: 0 8px 25px rgba(0, 102, 204, 0.3);
+      box-shadow: 0 8px 25px rgba(227, 10, 23, 0.3);
       border-radius: var(--radius-lg);
       overflow: hidden;
     }
@@ -381,7 +412,7 @@
       padding: 1rem;
       font-size: 1rem;
       border-radius: var(--radius-lg);
-      box-shadow: 0 8px 20px rgba(0, 102, 204, 0.4);
+      box-shadow: 0 8px 20px rgba(227, 10, 23, 0.4);
     }
     
     @keyframes floatUp {
@@ -403,7 +434,7 @@
       position: relative;
       overflow: hidden;
       margin-top: 60px;
-      border-bottom: 3px solid var(--accent);
+      border-bottom: 3px solid var(--primary);
     }
     
     .urgency-bar::before {
@@ -413,7 +444,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      background: linear-gradient(90deg, transparent, rgba(227, 10, 23, 0.3), transparent);
       animation: shimmer 3s infinite;
     }
     
@@ -475,7 +506,7 @@
     
     .urgency-icon {
       font-size: 1em;
-      color: var(--accent);
+      color: var(--primary);
     }
     
     /* === 主图部分 === */
@@ -504,8 +535,8 @@
       right: 0;
       bottom: 0;
       background: 
-        radial-gradient(circle at 20% 50%, rgba(0, 180, 216, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 20% 50%, rgba(227, 10, 23, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.08) 0%, transparent 50%),
         linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%);
       z-index: 1;
     }
@@ -547,6 +578,16 @@
       margin-bottom: var(--space-sm);
       box-shadow: var(--shadow-sm);
       font-size: 0.875rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-badge::before {
+      content: '★';
+      position: absolute;
+      right: 8px;
+      font-size: 0.8em;
+      opacity: 0.7;
     }
     
     .hero-title {
@@ -601,11 +642,13 @@
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-sm);
       transition: var(--transition-base);
+      border-left: 3px solid var(--primary);
     }
     
     .feature-item:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow-md);
+      border-left-color: var(--accent);
     }
     
     .feature-icon {
@@ -665,6 +708,14 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      position: relative;
+    }
+    
+    .form-title::after {
+      content: '★';
+      position: absolute;
+      right: -20px;
+      color: var(--primary);
     }
     
     .form-subtitle {
@@ -701,7 +752,7 @@
     .form-control:focus {
       outline: none;
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+      box-shadow: 0 0 0 3px rgba(227, 10, 23, 0.1);
     }
     
     .phone-group {
@@ -762,8 +813,8 @@
       align-items: center;
       gap: 0.5rem;
       padding: 0.75rem;
-      background: rgba(0, 102, 204, 0.08);
-      border: 1px solid rgba(0, 102, 204, 0.15);
+      background: rgba(227, 10, 23, 0.08);
+      border: 1px solid rgba(227, 10, 23, 0.15);
       border-radius: var(--radius-md);
       margin-top: 1.25rem;
       font-size: 0.85rem;
@@ -893,6 +944,26 @@
     .stats-section {
       background: var(--gradient-dark);
       color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .stats-section::before {
+      content: '★';
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      color: rgba(227, 10, 23, 0.1);
+    }
+    
+    .stats-section::after {
+      content: '★';
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 2rem;
+      color: rgba(227, 10, 23, 0.1);
     }
     
     .stats-grid {
@@ -900,6 +971,8 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
     
     @media (min-width: 768px) {
@@ -914,12 +987,23 @@
       background: rgba(255, 255, 255, 0.05);
       border-radius: var(--radius-md);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: var(--transition-base);
+      position: relative;
     }
     
     .stat-item:hover {
       background: rgba(255, 255, 255, 0.08);
       transform: translateY(-2px);
-      transition: var(--transition-base);
+      border-color: rgba(227, 10, 23, 0.3);
+    }
+    
+    .stat-item::before {
+      content: '★';
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      font-size: 0.8rem;
+      color: rgba(227, 10, 23, 0.5);
     }
     
     .stat-number {
@@ -971,6 +1055,7 @@
       border: 1px solid var(--gray-200);
       transition: var(--transition-base);
       height: 100%;
+      position: relative;
     }
     
     .step-card:hover {
@@ -991,6 +1076,34 @@
       font-size: 1.25rem;
       margin: 0 auto 0.9rem;
       box-shadow: var(--shadow-md);
+      position: relative;
+    }
+    
+    .step-number::after {
+      content: '→';
+      position: absolute;
+      right: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--primary);
+      font-size: 1.5rem;
+      opacity: 0;
+      transition: var(--transition-base);
+    }
+    
+    .step-card:hover .step-number::after {
+      opacity: 1;
+      right: -30px;
+    }
+    
+    .step-card:last-child .step-number::after {
+      display: none;
+    }
+    
+    @media (max-width: 767px) {
+      .step-number::after {
+        display: none;
+      }
     }
     
     .step-title {
@@ -1146,6 +1259,19 @@
       align-items: center;
       font-size: 1rem;
       color: var(--dark);
+      position: relative;
+    }
+    
+    .faq-question::before {
+      content: '★';
+      position: absolute;
+      left: 0.8rem;
+      color: var(--primary);
+      font-size: 0.8em;
+    }
+    
+    .faq-question span {
+      margin-left: 1.2rem;
     }
     
     .faq-question:hover {
@@ -1184,14 +1310,21 @@
     }
     
     .cta-section::before {
-      content: '';
+      content: '★';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 20c-5 0-10 5-10 10s5 10 10 10 10-5 10-10-5-10-10-10z' fill='white' fill-opacity='0.05'/%3E%3C/svg%3E");
-      background-size: 200px;
+      top: 20px;
+      left: 20px;
+      font-size: 2rem;
+      color: rgba(227, 10, 23, 0.1);
+    }
+    
+    .cta-section::after {
+      content: '★';
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      font-size: 2rem;
+      color: rgba(227, 10, 23, 0.1);
     }
     
     .cta-title {
@@ -1220,6 +1353,17 @@
       color: white;
       padding: var(--space-lg) 0 var(--space-md);
       border-top: 3px solid var(--primary);
+      position: relative;
+    }
+    
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
     }
     
     .footer-grid {
@@ -1241,6 +1385,12 @@
       margin-bottom: 0.75rem;
       display: inline-block;
       color: white;
+      position: relative;
+    }
+    
+    .footer-logo::after {
+      content: ' Türkiye';
+      color: var(--primary);
     }
     
     .footer-description {
@@ -1268,7 +1418,7 @@
     }
     
     .footer-links a:hover {
-      color: white;
+      color: var(--primary);
     }
     
     .footer-bottom {
@@ -1277,17 +1427,29 @@
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       color: rgba(255, 255, 255, 0.7);
       font-size: 0.8rem;
+      position: relative;
+    }
+    
+    .footer-bottom::before {
+      content: '★';
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--primary);
+      font-size: 1.2rem;
     }
     
     .compliance-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(227, 10, 23, 0.1);
       padding: 0.5rem 0.9rem;
       border-radius: var(--radius-md);
       margin-top: 0.9rem;
       font-size: 0.85rem;
+      border: 1px solid rgba(227, 10, 23, 0.2);
     }
     
     /* === 模态框 === */
@@ -1460,6 +1622,7 @@
     .compliance-badge-item:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow-md);
+      border-color: var(--primary);
     }
     
     .compliance-badge-item i {
@@ -1474,6 +1637,7 @@
       margin: 1.5rem 0;
       text-align: center;
       border-left: 4px solid var(--primary);
+      position: relative;
     }
     
     .platform-explanation h3 {
@@ -1504,6 +1668,8 @@
     .compliance-links a:hover {
       background: var(--gray-200);
       text-decoration: none;
+      color: white;
+      background: var(--gradient-primary);
     }
     
     /* 公司信息 */
@@ -1515,6 +1681,7 @@
       margin: 1.5rem auto;
       max-width: 1200px;
       border: 1px solid var(--gray-200);
+      border-left: 4px solid var(--primary);
     }
     
     .company-info p {
@@ -1555,7 +1722,7 @@
     .contact-options {
       margin-top: 1.2rem;
       padding: 1rem;
-      background: rgba(0, 102, 204, 0.05);
+      background: rgba(227, 10, 23, 0.05);
       border-radius: var(--radius-md);
       border-left: 4px solid var(--primary);
     }
@@ -1589,11 +1756,15 @@
       .footer-grid {
         grid-template-columns: 1fr;
       }
+      
+      .section-title::after {
+        display: none;
+      }
     }
     
-    /* 加拿大科技感图案 */
+    /* 土耳其科技感图案 */
     .tech-canadian-pattern {
-      background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100 50c-15 0-30 15-30 30s15 30 30 30 30-15 30-30-15-30-30-30z' fill='%230066CC' fill-opacity='0.03'/%3E%3Cpath d='M60 80c-10 0-20 10-20 20s10 20 20 20 20-10 20-20-10-20-20-20z' fill='%2300B4D8' fill-opacity='0.03'/%3E%3Cpath d='M140 80c-10 0-20 10-20 20s10 20 20 20 20-10 20-20-10-20-20-20z' fill='%23FF6B35' fill-opacity='0.03'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100 50c-15 0-30 15-30 30s15 30 30 30 30-15 30-30-15-30-30-30z' fill='%23E30A17' fill-opacity='0.03'/%3E%3Cpath d='M60 80c-10 0-20 10-20 20s10 20 20 20 20-10 20-20-10-20-20-20z' fill='%23C10713' fill-opacity='0.03'/%3E%3Cpath d='M140 80c-10 0-20 10-20 20s10 20 20 20 20-10 20-20-10-20-20-20z' fill='%23FF6B35' fill-opacity='0.03'/%3E%3C/svg%3E");
       background-size: 300px;
       opacity: 0.4;
       position: fixed;
@@ -1623,6 +1794,7 @@
       margin-left: 0.5rem;
       animation: pulse 2s infinite;
       display: inline-block;
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
     
     @keyframes pulse {
@@ -1647,5 +1819,49 @@
     
     /* 边框效果 */
     .border-glow {
-      box-shadow: 0 0 15px rgba(0, 180, 216, 0.2);
+      box-shadow: 0 0 15px rgba(227, 10, 23, 0.2);
+      border: 1px solid rgba(227, 10, 23, 0.1);
+    }
+    
+    /* 新增土耳其风格装饰元素 */
+    .maple-leaf {
+      color: var(--primary) !important;
+    }
+    
+    /* 土耳其星月图案装饰 */
+    .turkish-crescent {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background: var(--primary);
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+    
+    .turkish-crescent::before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+    }
+    
+    /* 响应式调整 */
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.5rem;
+      }
+      
+      .section-title {
+        font-size: 1.3rem;
+      }
+      
+      .btn-lg {
+        padding: 0.8rem 1.2rem;
+        font-size: 1rem;
+      }
     }
