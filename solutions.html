@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions - Sanwei HR | Global HR Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 基础样式 - 与主页保持一致 */
+        :root {
+            --primary: #003366;
+            --secondary: #007BFF;
+            --accent: #FF6B35;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* 导航栏 */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-links a.active {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* 页面特定样式 */
+        .page-hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.9)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .page-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        /* 解决方案导航 */
+        .solutions-nav {
+            background: var(--light);
+            padding: 30px 0;
+            position: sticky;
+            top: 80px;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .solutions-nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .solution-nav-item {
+            padding: 12px 25px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--dark);
+        }
+        
+        .solution-nav-item.active, .solution-nav-item:hover {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        /* 解决方案板块 */
+        .solution-section {
+            scroll-margin-top: 150px;
+        }
+        
+        .solution-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+        
+        .solution-content:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .solution-text {
+            flex: 1;
+        }
+        
+        .solution-text h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .solution-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .solution-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        .solution-services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-item {
+            background: var(--light);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .service-item i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .service-item h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* 统计数据 */
+        .stats {
+            background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.9)), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1567&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .stat-item p {
+            font-size: 1.2rem;
+        }
+        
+        /* 联系部分 */
+        .contact-cta {
+            background: white;
+            text-align: center;
+        }
+        
+        .contact-cta .btn {
+            margin-top: 30px;
+        }
+        
+        /* 页脚 */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .page-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .solution-content {
+                flex-direction: column;
+            }
+            
+            .solution-content:nth-child(even) {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .page-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .solutions-nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .solution-nav-item {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">Sanwei <span>HR</span></a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="business.html">For Business</a></li>
+                    <li><a href="individuals.html">For Individuals</a></li>
+                    <li><a href="solutions.html" class="active">Solutions</a></li>
+                    <li><a href="cases.html">Case Studies</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 页面英雄区域 -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Comprehensive HR Solutions</h1>
+            <p>Discover our innovative approaches to global staffing, HR consulting, talent matching, and career development.</p>
+            <a href="#solutions-nav" class="btn">Explore Solutions</a>
+        </div>
+    </section>
+
+    <!-- 解决方案导航 -->
+    <section class="solutions-nav" id="solutions-nav">
+        <div class="container">
+            <div class="solutions-nav-container">
+                <a href="#global-staffing" class="solution-nav-item">Global Staffing</a>
+                <a href="#hr-consulting" class="solution-nav-item">HR Consulting</a>
+                <a href="#ai-talent-matching" class="solution-nav-item">AI Talent Matching</a>
+                <a href="#skills-assessment" class="solution-nav-item">Skills Assessment</a>
+                <a href="#skills-development" class="solution-nav-item">Skills Development</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Staffing 解决方案 -->
+    <section class="solution-section" id="global-staffing">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h2>Global Staffing Solutions</h2>
+                    <p>Expand your business internationally with our comprehensive global staffing services. We handle the complexities of international employment so you can focus on your core business operations.</p>
+                    <p>Our global staffing solutions include labor dispatch, employer of record services, and international payroll management, ensuring compliance with local regulations in all 20+ countries we operate in.</p>
+                    
+                    <ul class="feature-list">
+                        <li>End-to-end international employment solutions</li>
+                        <li>Compliance with local labor laws and regulations</li>
+                        <li>Multi-country payroll and benefits administration</li>
+                        <li>Visa and work permit assistance</li>
+                        <li>24/7 support for international employees</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="btn" style="margin-top: 20px;">Get Started</a>
+                </div>
+                <div class="solution-image">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Global Staffing">
+                </div>
+            </div>
+            
+            <div class="solution-services">
+                <div class="service-item">
+                    <i class="fas fa-globe"></i>
+                    <h4>International Labor Dispatch</h4>
+                    <p>Seamlessly deploy talent across borders with full compliance</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-user-tie"></i>
+                    <h4>Employer of Record</h4>
+                    <p>We become the legal employer for your international hires</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <h4>Global Payroll</h4>
+                    <p>Consolidated payroll management across multiple countries</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-passport"></i>
+                    <h4>Immigration Support</h4>
+                    <p>Complete visa and work permit processing assistance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HR Consulting 解决方案 -->
+    <section class="solution-section" id="hr-consulting">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h2>HR Consulting Services</h2>
+                    <p>Transform your HR function with our expert consulting services. From strategy development to process optimization, we help you build a world-class HR organization.</p>
+                    <p>Our HR consultants bring decades of experience across industries and geographies, delivering tailored solutions that drive organizational effectiveness and employee engagement.</p>
+                    
+                    <ul class="feature-list">
+                        <li>HR strategy and transformation consulting</li>
+                        <li>Organizational design and development</li>
+                        <li>Performance management system implementation</li>
+                        <li>Compensation and benefits structuring</li>
+                        <li>HR technology selection and implementation</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="btn" style="margin-top: 20px;">Consult Our Experts</a>
+                </div>
+                <div class="solution-image">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="HR Consulting">
+                </div>
+            </div>
+            
+            <div class="solution-services">
+                <div class="service-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>HR Strategy</h4>
+                    <p>Develop comprehensive HR strategies aligned with business goals</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-sitemap"></i>
+                    <h4>Organizational Design</h4>
+                    <p>Optimize organizational structures for maximum efficiency</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h4>Performance Management</h4>
+                    <p>Implement modern performance management systems</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-money-check-alt"></i>
+                    <h4>Compensation Consulting</h4>
+                    <p>Design competitive and equitable compensation structures</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Talent Matching 解决方案 -->
+    <section class="solution-section" id="ai-talent-matching">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h2>AI-Powered Talent Matching</h2>
+                    <p>Revolutionize your recruitment process with our advanced AI-powered talent matching platform. Our intelligent algorithms analyze thousands of data points to identify the perfect candidate for each role.</p>
+                    <p>By leveraging machine learning and predictive analytics, we reduce time-to-hire by up to 65% while significantly improving the quality of matches between candidates and positions.</p>
+                    
+                    <ul class="feature-list">
+                        <li>Advanced AI algorithms for precise candidate matching</li>
+                        <li>Predictive analytics for candidate success forecasting</li>
+                        <li>Automated candidate screening and ranking</li>
+                        <li>Skills and competency mapping</li>
+                        <li>Cultural fit assessment</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="btn" style="margin-top: 20px;">See Platform Demo</a>
+                </div>
+                <div class="solution-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="AI Talent Matching">
+                </div>
+            </div>
+            
+            <div class="solution-services">
+                <div class="service-item">
+                    <i class="fas fa-robot"></i>
+                    <h4>Smart Matching</h4>
+                    <p>AI algorithms that learn from successful placements</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Rapid Screening</h4>
+                    <p>Automated screening of thousands of candidates in minutes</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <h4>Predictive Analytics</h4>
+                    <p>Data-driven insights into candidate success potential</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-user-friends"></i>
+                    <h4>Cultural Fit</h4>
+                    <p>Assessment of alignment with company culture and values</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Assessment 解决方案 -->
+    <section class="solution-section" id="skills-assessment">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h2>Comprehensive Skills Assessment</h2>
+                    <p>Gain deep insights into individual and organizational capabilities with our comprehensive skills assessment solutions. Our scientifically validated assessments provide actionable data for talent development and strategic workforce planning.</p>
+                    <p>From technical competencies to soft skills and leadership potential, our assessment tools help organizations make informed decisions about hiring, promotion, and development.</p>
+                    
+                    <ul class="feature-list">
+                        <li>Multi-dimensional skills evaluation</li>
+                        <li>Technical and competency-based assessments</li>
+                        <li>Psychometric testing for soft skills</li>
+                        <li>Leadership potential assessment</li>
+                        <li>Customizable assessment frameworks</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="btn" style="margin-top: 20px;">Request Assessment</a>
+                </div>
+                <div class="solution-image">
+                    <img src="https://images.unsplash.com/photo-1586282391129-76a6df230234?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Skills Assessment">
+                </div>
+            </div>
+            
+            <div class="solution-services">
+                <div class="service-item">
+                    <i class="fas fa-cogs"></i>
+                    <h4>Technical Skills</h4>
+                    <p>Assessment of industry-specific technical capabilities</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-users"></i>
+                    <h4>Soft Skills</h4>
+                    <p>Evaluation of communication, leadership, and teamwork</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-brain"></i>
+                    <h4>Cognitive Abilities</h4>
+                    <p>Measurement of problem-solving and critical thinking skills</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-chart-pie"></i>
+                    <h4>Gap Analysis</h4>
+                    <p>Identification of skills gaps and development needs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Development 解决方案 -->
+    <section class="solution-section" id="skills-development">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h2>Skills Development & Training</h2>
+                    <p>Bridge skills gaps and foster continuous learning with our comprehensive development programs. We offer customized training solutions that align with both individual career goals and organizational objectives.</p>
+                    <p>Our training methodology combines cutting-edge content with practical application, ensuring that learning translates directly into improved performance and productivity.</p>
+                    
+                    <ul class="feature-list">
+                        <li>Customized training curriculum development</li>
+                        <li>Blended learning approaches (online and in-person)</li>
+                        <li>Leadership and management development programs</li>
+                        <li>Technical skills enhancement workshops</li>
+                        <li>Measurement of training effectiveness and ROI</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="btn" style="margin-top: 20px;">Explore Programs</a>
+                </div>
+                <div class="solution-image">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Skills Development">
+                </div>
+            </div>
+            
+            <div class="solution-services">
+                <div class="service-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>Leadership Training</h4>
+                    <p>Develop current and future leaders at all levels</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>Technical Upskilling</h4>
+                    <p>Keep your team updated with latest technologies</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-handshake"></i>
+                    <h4>Soft Skills Development</h4>
+                    <p>Enhance communication, collaboration, and emotional intelligence</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-certificate"></i>
+                    <h4>Certification Programs</h4>
+                    <p>Industry-recognized certifications for skill validation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 统计数据 -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Enterprise Clients</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50,000+</h3>
+                    <p>Talents Matched</p>
+                </div>
+                <div class="stat-item">
+                    <h3>20+</h3>
+                    <p>Countries Covered</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Client Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系部分 -->
+    <section class="contact-cta">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ready to Transform Your HR Strategy?</h2>
+                <p>Contact us today to discuss how our solutions can help your organization achieve its goals.</p>
+            </div>
+            <a href="contact.html" class="btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sanwei HR</h3>
+                    <p>Your global partner in talent acquisition and career development. We bridge opportunities across borders with compliance and excellence.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="business.html">For Business</a></li>
+                        <li><a href="individuals.html">For Individuals</a></li>
+                        <li><a href="solutions.html">Our Solutions</a></li>
+                        <li><a href="cases.html">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a href="#global-staffing">Global Staffing</a></li>
+                        <li><a href="#hr-consulting">HR Consulting</a></li>
+                        <li><a href="#ai-talent-matching">AI Talent Matching</a></li>
+                        <li><a href="#skills-assessment">Skills Assessment</a></li>
+                        <li><a href="#skills-development">Skills Development</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 45/F, 33 Hysan Ave, Causeway Bay, HK</li>
+                        <li><i class="fas fa-phone"></i> +852 31128888-1</li>
+                        <li><i class="fas fa-envelope"></i> support@whhbhc.xyz</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Sanwei HR. All Rights Reserved. | <a href="privacy.html" style="color: #ccc;">Privacy Policy</a> | <a href="userterms.html" style="color: #ccc;">Terms of Service</a> | <a href="compliance.html" style="color: #ccc;">Compliance Statement</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // 解决方案导航高亮
+        const solutionSections = document.querySelectorAll('.solution-section');
+        const navItems = document.querySelectorAll('.solution-nav-item');
+        
+        function highlightNavItem() {
+            let currentSection = '';
+            
+            solutionSections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= (sectionTop - 200)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').includes(currentSection)) {
+                    item.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', highlightNavItem);
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 150,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动端菜单
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
