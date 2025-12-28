@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="tr-TR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanım Şartları - Hiwork Türkiye</title>
+    <style>
+        /* 土耳其风格配色 */
+        :root {
+            --primary: #E30A17; /* 土耳其国旗红 */
+            --secondary: #C10713; /* 深土耳其红 */
+            --accent: #FF6B35; /* 活力的橙色 */
+            --light: #FFFFFF;
+            --dark: #1A1A2E; /* 深蓝黑色背景 */
+            --gray-50: #F8F9FA;
+            --gray-100: #E9ECEF;
+            --gray-200: #DEE2E6;
+            --gray-300: #CED4DA;
+            --gray-600: #6C757D;
+            --gray-700: #495057;
+            --gray-800: #343A40;
+            --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary));
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --radius-md: 8px;
+            --shadow-sm: 0 2px 5px rgba(227, 10, 23, 0.1);
+            --shadow-md: 0 4px 10px rgba(227, 10, 23, 0.15);
+            --shadow-lg: 0 8px 25px rgba(227, 10, 23, 0.2);
+            --transition-base: 0.25s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background-color: var(--light);
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100 50c-15 0-30 15-30 30s15 30 30 30 30-15 30-30-15-30-30-30z' fill='%23E30A17' fill-opacity='0.02'/%3E%3Cpath d='M60 80c-10 0-20 10-20 20s10 20 20 20 20-10 20-20-10-20-20-20z' fill='%23C10713' fill-opacity='0.02'/%3E%3C/svg%3E");
+            background-size: 300px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部样式 */
+        .terms-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .terms-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .terms-header .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .terms-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .terms-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary) 50%, var(--light) 50%, var(--light) 100%);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terms-logo-icon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            transform: translate(-50%, 80%);
+        }
+
+        .terms-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .terms-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* 快速导航 */
+        .quick-nav {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin: 2rem auto 3rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-200);
+            max-width: 800px;
+        }
+
+        .quick-nav h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-700);
+            text-decoration: none;
+            padding: 0.5rem 0.8rem;
+            border-radius: var(--radius-md);
+            transition: var(--transition-base);
+            border-left: 3px solid transparent;
+        }
+
+        .nav-links a:hover {
+            background: rgba(227, 10, 23, 0.05);
+            color: var(--primary);
+            border-left-color: var(--primary);
+        }
+
+        .nav-links a i {
+            color: var(--primary);
+            font-size: 0.9em;
+        }
+
+        /* 内容区域 */
+        .terms-content {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 3rem;
+            border: 1px solid var(--gray-200);
+        }
+
+        @media (max-width: 768px) {
+            .terms-content {
+                padding: 2rem;
+            }
+            
+            .nav-links {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--gray-200);
+            scroll-margin-top: 20px;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--primary);
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '§';
+            position: absolute;
+            left: -15px;
+            color: var(--primary);
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .section-number {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            margin-right: 10px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .section-content {
+            line-height: 1.8;
+            color: var(--gray-700);
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content ul, .section-content ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+        }
+
+        .section-content li {
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-content li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: -1rem;
+        }
+
+        /* 重点内容框 */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(227, 10, 23, 0.05), rgba(255, 107, 53, 0.05));
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 152, 0, 0.1));
+            border: 2px solid #FF9800;
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .warning-box::before {
+            content: '⚠';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #FF9800;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.1), rgba(66, 165, 245, 0.1));
+            border: 2px solid #2196F3;
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .info-box::before {
+            content: 'ℹ';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #2196F3;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* 定义列表 */
+        .definition-list {
+            margin: 2rem 0;
+        }
+
+        .definition-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--primary);
+        }
+
+        .definition-term {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .definition-description {
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        /* 表格样式 */
+        .terms-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .terms-table th {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .terms-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .terms-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .terms-table tr:hover {
+            background: rgba(227, 10, 23, 0.02);
+        }
+
+        /* 同意条款框 */
+        .acceptance-box {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(102, 187, 106, 0.1));
+            border: 2px solid #4CAF50;
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .acceptance-title {
+            color: #2E7D32;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        /* 联系信息 */
+        .contact-info {
+            background: linear-gradient(135deg, rgba(227, 10, 23, 0.05), rgba(193, 7, 19, 0.05));
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(227, 10, 23, 0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-base);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* 页脚 */
+        .terms-footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 3px solid var(--primary);
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition-base);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            background: rgba(227, 10, 23, 0.2);
+        }
+
+        .footer-disclaimer {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            max-width: 800px;
+            margin: 2rem auto 0;
+            line-height: 1.6;
+        }
+
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: var(--transition-base);
+            border: 2px solid transparent;
+        }
+
+        .back-to-home:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        /* 打印样式 */
+        @media print {
+            .terms-header, .terms-footer, .back-to-home, .quick-nav {
+                display: none;
+            }
+            
+            .terms-content {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+            }
+            
+            body {
+                background: white;
+                font-size: 12pt;
+            }
+        }
+
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            .terms-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .terms-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 条款编号样式 */
+        .clause-number {
+            display: inline-block;
+            background: var(--gray-100);
+            color: var(--primary);
+            font-weight: bold;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+            font-size: 0.9em;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="terms-header">
+        <div class="container">
+            <a href="/" class="terms-logo">
+                <div class="terms-logo-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                Hiwork Türkiye
+            </a>
+            <h1 class="terms-title">Kullanım Şartları</h1>
+            <p class="terms-subtitle">Hiwork Türkiye platformunu kullanmadan önce bu şartları dikkatlice okuyun. Platformu kullanarak bu şartları kabul etmiş sayılırsınız.</p>
+            <div class="last-updated">
+                <i class="fas fa-calendar-alt"></i>
+                Son Güncelleme: 15 Kasım 2024
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 快速导航 -->
+        <div class="quick-nav">
+            <h3><i class="fas fa-bookmark"></i> Hızlı Navigasyon</h3>
+            <div class="nav-links">
+                <a href="#general"><i class="fas fa-file-contract"></i> Genel Hükümler</a>
+                <a href="#services"><i class="fas fa-briefcase"></i> Hizmet Tanımı</a>
+                <a href="#registration"><i class="fas fa-user-plus"></i> Kayıt ve Üyelik</a>
+                <a href="#user-rights"><i class="fas fa-user-shield"></i> Kullanıcı Hakları</a>
+                <a href="#user-responsibilities"><i class="fas fa-user-check"></i> Kullanıcı Sorumlulukları</a>
+                <a href="#payment"><i class="fas fa-money-bill-wave"></i> Ücret Politikası</a>
+                <a href="#termination"><i class="fas fa-ban"></i> Sözleşme Sonlandırma</a>
+                <a href="#liability"><i class="fas fa-balance-scale"></i> Sorumluluk Sınırlamaları</a>
+                <a href="#privacy"><i class="fas fa-lock"></i> Gizlilik ve Veri</a>
+                <a href="#contact"><i class="fas fa-headset"></i> İletişim ve Destek</a>
+            </div>
+        </div>
+
+        <article class="terms-content">
+            <!-- Önemli Uyarı -->
+            <div class="warning-box">
+                <h4 style="color: #E65100; margin-bottom: 1rem;">
+                    <i class="fas fa-exclamation-circle"></i>
+                    ÖNEMLİ UYARI
+                </h4>
+                <p>Lütfen bu kullanım şartlarını dikkatlice okuyun. Platformumuzu kullanarak, aşağıdaki tüm şartları ve koşulları kabul etmiş olursunuz. Kabul etmiyorsanız, lütfen platformu kullanmayın.</p>
+            </div>
+
+            <section class="section" id="general">
+                <h2 class="section-title">
+                    <span class="section-number">1</span>
+                    Genel Hükümler
+                </h2>
+                <div class="section-content">
+                    <p>Bu Kullanım Şartları ("Şartlar"), Hiwork Türkiye ("Platform", "Biz") ile platform kullanıcıları ("Kullanıcı", "Siz") arasındaki ilişkiyi düzenler.</p>
+                    
+                    <div class="definition-list">
+                        <div class="definition-item">
+                            <div class="definition-term">Platform</div>
+                            <div class="definition-description">Hiwork Türkiye uzaktan çalışma iş eşleştirme platformunu ifade eder.</div>
+                        </div>
+                        
+                        <div class="definition-item">
+                            <div class="definition-term">Kullanıcı</div>
+                            <div class="definition-description">Platforma kayıt olan ve hizmetlerimizden yararlanan kişiyi ifade eder.</div>
+                        </div>
+                        
+                        <div class="definition-item">
+                            <div class="definition-term">İşveren</div>
+                            <div class="definition-description">Platform üzerinden işçi arayan onaylı şirketleri ifade eder.</div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-gavel"></i> Yasal Çerçeve</h4>
+                        <p>Bu şartlar, Türkiye Cumhuriyeti yasalarına (özellikle 6098 sayılı Türk Borçlar Kanunu ve 6563 sayılı Elektronik Ticaretin Düzenlenmesi Hakkında Kanun) uygun olarak hazırlanmıştır. İhtilaf halinde Türk mahkemeleri yetkilidir.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="services">
+                <h2 class="section-title">
+                    <span class="section-number">2</span>
+                    Hizmet Tanımı
+                </h2>
+                <div class="section-content">
+                    <p>Hiwork Türkiye, iş arayanlar ile işverenleri buluşturan bir çevrimiçi platformdur. Sağladığımız hizmetler şunlardır:</p>
+                    
+                    <ol>
+                        <li><strong>İş Eşleştirme:</strong> Profilinize uygun iş fırsatları sunma</li>
+                        <li><strong>Başvuru Yönetimi:</strong> Tek başvuru ile birden fazla işverene ulaşma</li>
+                        <li><strong>Kariyer Danışmanlığı:</strong> Uzaktan çalışma konusunda rehberlik</li>
+                        <li><strong>İşveren Doğrulama:</strong> Şirketlerin yasal ve finansal durumunu kontrol etme</li>
+                    </ol>
+
+                    <div class="info-box">
+                        <h4><i class="fas fa-info-circle"></i> Önemli Not</h4>
+                        <p>Hiwork Türkiye bir istihdam ajansı DEĞİLDİR. Biz iş arayanlar ile işverenler arasında köprü görevi gören bir platformuz. Nihai iş sözleşmesi iş arayan ile işveren arasında doğrudan yapılır.</p>
+                    </div>
+
+                    <table class="terms-table">
+                        <thead>
+                            <tr>
+                                <th>Hizmet Türü</th>
+                                <th>Açıklama</th>
+                                <th>Ücret Durumu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Temel Eşleştirme</td>
+                                <td>Uygun iş ilanlarına erişim ve başvuru</td>
+                                <td>Ücretsiz</td>
+                            </tr>
+                            <tr>
+                                <td>Premium Profil</td>
+                                <td>Öncelikli iş önerileri ve görünürlük</td>
+                                <td>Ücretli (opsiyonel)</td>
+                            </tr>
+                            <tr>
+                                <td>Kariyer Koçluğu</td>
+                                <td>Kişisel kariyer danışmanlığı</td>
+                                <td>Ücretli (opsiyonel)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="section" id="registration">
+                <h2 class="section-title">
+                    <span class="section-number">3</span>
+                    Kayıt ve Üyelik
+                </h2>
+                <div class="section-content">
+                    <p><span class="clause-number">3.1</span> Platformumuzu kullanmak için kayıt olmanız gerekmektedir. Kayıt sırasında aşağıdaki bilgileri sağlamalısınız:</p>
+                    
+                    <ul>
+                        <li>Gerçek ad ve soyad (resmi kimlikle uyumlu)</li>
+                        <li>Geçerli bir Türkiye telefon numarası</li>
+                        <li>Doğru yaş bilgisi (18-70 yaş arası)</li>
+                        <li>Türkiye'de çalışma izni bilgisi</li>
+                    </ul>
+
+                    <p><span class="clause-number">3.2</span> Kayıt için aşağıdaki şartları sağlamalısınız:</p>
+                    
+                    <div class="highlight-box">
+                        <ul>
+                            <li>18 yaşından büyük olmak</li>
+                            <li>Türkiye Cumhuriyeti vatandaşı veya Türkiye'de çalışma izni olmak</li>
+                            <li>Yanlış veya yanıltıcı bilgi vermemek</li>
+                            <li>Daha önce platformdan kalıcı olarak yasaklanmamış olmak</li>
+                        </ul>
+                    </div>
+
+                    <p><span class="clause-number">3.3</span> Hesabınızı güvende tutmak sizin sorumluluğunuzdadır. Şifrenizi kimseyle paylaşmamalı ve güvenli bir şifre seçmelisiniz.</p>
+
+                    <div class="warning-box">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Hesap Güvenliği</h4>
+                        <p>Hesabınızın güvenliğinden siz sorumlusunuz. Hesabınız üzerinden yapılan tüm işlemlerden siz sorumlu olursunuz. Şüpheli bir aktivite tespit ederseniz hemen destek@hiworkturkiye.whhbhc.xyz adresine bildirin.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="user-rights">
+                <h2 class="section-title">
+                    <span class="section-number">4</span>
+                    Kullanıcı Hakları
+                </h2>
+                <div class="section-content">
+                    <p>Platform kullanıcıları olarak aşağıdaki haklara sahipsiniz:</p>
+                    
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-user-check"></i> Temel Haklar</h4>
+                        <ul>
+                            <li><strong>Erişim Hakkı:</strong> Platformun temel özelliklerine ücretsiz erişim</li>
+                            <li><strong>Bilgi Edinme:</strong> İşverenler hakkında doğru bilgi alma hakkı</li>
+                            <li><strong>Başvuru Yapma:</strong> Uygun iş ilanlarına başvurma hakkı</li>
+                            <li><strong>Geri Bildirim:</strong> Platform hakkında geri bildirim verme hakkı</li>
+                            <li><strong>Hesap Silme:</strong> Hesabınızı istediğiniz zaman kapatma hakkı</li>
+                        </ul>
+                    </div>
+
+                    <p><span class="clause-number">4.1</span> KVKK kapsamındaki haklarınız (bilgi edinme, düzeltme, silme, itiraz) gizlilik politikamızda detaylandırılmıştır.</p>
+
+                    <p><span class="clause-number">4.2</span> Platformumuzu kullanırken aşağıdaki kalite standartlarını bekleyebilirsiniz:</p>
+                    
+                    <ul>
+                        <li>%99.5 platform erişilebilirliği</li>
+                        <li>24 saat içinde destek yanıtı</li>
+                        <li>Doğrulanmış işveren profilleri</li>
+                        <li>Şeffaf ücret politikası</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section" id="user-responsibilities">
+                <h2 class="section-title">
+                    <span class="section-number">5</span>
+                    Kullanıcı Sorumlulukları
+                </h2>
+                <div class="section-content">
+                    <p>Platformu kullanırken aşağıdaki sorumlulukları kabul edersiniz:</p>
+                    
+                    <div class="warning-box">
+                        <h4><i class="fas fa-ban"></i> Yasaklanan Davranışlar</h4>
+                        <ul>
+                            <li>Sahte veya yanıltıcı bilgi vermek</li>
+                            <li>Başkası adına başvuru yapmak</li>
+                            <li>Spam veya istenmeyen içerik göndermek</li>
+                            <li>Platformu hacklemeye veya zarar vermeye çalışmak</li>
+                            <li>Diğer kullanıcıları rahatsız etmek veya taciz etmek</li>
+                            <li>Ticari sırları ifşa etmek</li>
+                            <li>Yasa dışı içerik paylaşmak</li>
+                        </ul>
+                    </div>
+
+                    <p><span class="clause-number">5.1</span> İşverenlerle yapacağınız görüşmelerde profesyonel davranmalı ve Türk iş ahlakına uygun hareket etmelisiniz.</p>
+
+                    <p><span class="clause-number">5.2</span> Platform üzerinden elde ettiğiniz işveren bilgilerini kötüye kullanamaz veya üçüncü şahıslarla paylaşamazsınız.</p>
+
+                    <div class="info-box">
+                        <h4><i class="fas fa-handshake"></i> Profesyonel Davranış</h4>
+                        <p>İşverenlerle yapılan mülakatlara zamanında katılmalı, randevulara uymalı ve dürüst davranmalısınız. Profesyonel olmayan davranışlar hesabınızın askıya alınmasına neden olabilir.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="payment">
+                <h2 class="section-title">
+                    <span class="section-number">6</span>
+                    Ücret Politikası
+                </h2>
+                <div class="section-content">
+                    <p><span class="clause-number">6.1</span> Temel iş eşleştirme hizmetlerimiz iş arayanlar için TAMAMEN ÜCRETSİZDİR.</p>
+                    
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-money-bill-wave"></i> Ücretsiz Hizmetler</h4>
+                        <ul>
+                            <li>Platforma kayıt olma</li>
+                            <li>Profil oluşturma</li>
+                            <li>İş ilanlarını görüntüleme</li>
+                            <li>İş ilanlarına başvurma</li>
+                            <li>İşverenlerle iletişime geçme</li>
+                            <li>Temel kariyer rehberliği</li>
+                        </ul>
+                    </div>
+
+                    <p><span class="clause-number">6.2</span> Opsiyonel premium hizmetlerimiz için ücret alınabilir. Bu hizmetler:</p>
+                    
+                    <ul>
+                        <li>Premium profil (öne çıkan profil)</li>
+                        <li>Kariyer koçluğu seansları</li>
+                        <li>CV hazırlama ve optimize etme hizmeti</li>
+                        <li>Mülakat simülasyonları</li>
+                    </ul>
+
+                    <p><span class="clause-number">6.3</span> Tüm ödemeler Türk Lirası (₺) olarak alınır ve %18 KDV dahildir.</p>
+
+                    <div class="warning-box">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Ödeme Uyarısı</h4>
+                        <p>Hiçbir durumda sizden iş bulma garantisi karşılığında ücret talep ETMEYİZ. Bu tür taleplerle karşılaşırsanız hemen destek@hiworkturkiye.whhbhc.xyz adresine bildirin.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="termination">
+                <h2 class="section-title">
+                    <span class="section-number">7</span>
+                    Sözleşme Sonlandırma
+                </h2>
+                <div class="section-content">
+                    <p><span class="clause-number">7.1</span> Hesabınızı istediğiniz zaman aşağıdaki yollarla kapatabilirsiniz:</p>
+                    
+                    <ul>
+                        <li>Hesap ayarları üzerinden kendiniz kapatma</li>
+                        <li>destek@hiworkturkiye.whhbhc.xyz adresine talep gönderme</li>
+                    </ul>
+
+                    <p><span class="clause-number">7.2</span> Aşağıdaki durumlarda hesabınızı askıya alabilir veya kalıcı olarak kapatabiliriz:</p>
+                    
+                    <div class="warning-box">
+                        <ul>
+                            <li>Şartları ihlal etmeniz</li>
+                            <li>Yasa dışı aktivitelerde bulunmanız</li>
+                            <li>Diğer kullanıcıları rahatsız etmeniz</li>
+                            <li>Sahte bilgi vermeniz</li>
+                            <li>6 aydan uzun süre hesabınızı kullanmamanız</li>
+                        </ul>
+                    </div>
+
+                    <p><span class="clause-number">7.3</span> Hesabınız kapatıldığında:</p>
+                    
+                    <ul>
+                        <li>Profiliniz ve başvurularınız silinir</li>
+                        <li>Aktif süreçler durdurulur</li>
+                        <li>KVKK gereği verileriniz yasal sürelerde saklanır</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section" id="liability">
+                <h2 class="section-title">
+                    <span class="section-number">8</span>
+                    Sorumluluk Sınırlamaları
+                </h2>
+                <div class="section-content">
+                    <p><span class="clause-number">8.1</span> Hiwork Türkiye olarak sorumluluğumuz sınırlıdır:</p>
+                    
+                    <div class="info-box">
+                        <ul>
+                            <li>İş bulma garantisi vermeyiz</li>
+                            <li>İşverenlerin nihai işe alım kararlarından sorumlu değiliz</li>
+                            <li>İşverenlerle yapılan sözleşmelerden sorumlu değiliz</li>
+                            <li>Platform dışı iletişimlerden sorumlu değiliz</li>
+                            <li>Teknik arızalardan doğan zararlardan sorumlu değiliz</li>
+                        </ul>
+                    </div>
+
+                    <p><span class="clause-number">8.2</span> Maksimum sorumluluğumuz, olası durumlarda, son 6 ayda ödediğiniz toplam ücretle sınırlıdır.</p>
+
+                    <p><span class="clause-number">8.3</span> Aşağıdaki durumlardan sorumlu tutulamayız:</p>
+                    
+                    <ul>
+                        <li>Doğal afetler ve force majeure durumları</li>
+                        <li>Üçüncü taraf hizmet kesintileri</li>
+                        <li>Kullanıcı hataları</li>
+                        <li>Yasal düzenlemelerdeki değişiklikler</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-balance-scale"></i> Yasal Uyarı</h4>
+                        <p>Tüm ihtilaflarda öncelikle arabuluculuk yoluna gidilmesini tavsiye ederiz. Anlaşmazlık durumunda İstanbul Mahkemeleri ve İcra Daireleri yetkilidir.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="privacy">
+                <h2 class="section-title">
+                    <span class="section-number">9</span>
+                    Gizlilik ve Veri Koruma
+                </h2>
+                <div class="section-content">
+                    <p><span class="clause-number">9.1</span> Kişisel verileriniz <a href="/privacy.html" style="color: var(--primary); font-weight: 600;">Gizlilik Politikamız</a> uyarınca işlenir ve korunur.</p>
+                    
+                    <p><span class="clause-number">9.2</span> Veri paylaşım politikamız:</p>
+                    
+                    <table class="terms-table">
+                        <thead>
+                            <tr>
+                                <th>Veri Türü</th>
+                                <th>Paylaşım Amacı</th>
+                                <th>Paylaşılan Taraflar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Temel Profil Bilgileri</td>
+                                <td>İş eşleştirme</td>
+                                <td>Onaylı İşverenler</td>
+                            </tr>
+                            <tr>
+                                <td>İletişim Bilgileri</td>
+                                <td>Mülakat daveti</td>
+                                <td>Seçilen İşverenler</td>
+                            </tr>
+                            <tr>
+                                <td>Kullanım Verileri</td>
+                                <td>Platform geliştirme</td>
+                                <td>Hiçbir üçüncü taraf (anonim)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p><span class="clause-number">9.3</span> KVKK kapsamındaki tüm haklarınız için gizlilik politikamızı inceleyin.</p>
+                </div>
+            </section>
+
+            <section class="section" id="contact">
+                <h2 class="section-title">
+                    <span class="section-number">10</span>
+                    İletişim ve Destek
+                </h2>
+                <div class="section-content">
+                    <p>Her türlü soru, görüş ve şikayetiniz için bize aşağıdaki kanallardan ulaşabilirsiniz:</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Genel İletişim</h4>
+                                <p>info@hiworkturkiye.whhbhc.xyz</p>
+                                <small>Genel sorular için</small>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Teknik Destek</h4>
+                                <p>destek@hiworkturkiye.whhbhc.xyz</p>
+                                <small>Teknik sorunlar için</small>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Yasal İşler</h4>
+                                <p>legal@hiworkturkiye.whhbhc.xyz</p>
+                                <small>Yasal konular için</small>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>KVKK Başvuruları</h4>
+                                <p>kvkk@hiworkturkiye.whhbhc.xyz</p>
+                                <small>Veri koruma başvuruları</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p><span class="clause-number">10.1</span> Adres: Maslak Mah. Büyükdere Cad. No:123, Şişli/İstanbul - TÜRKİYE</p>
+                    <p><span class="clause-number">10.2</span> Telefon: +90 850 123 4567 (Hafta içi 09:00-18:00)</p>
+                    <p><span class="clause-number">10.3</span> MERSIS No: 0123-4567-8901-2345</p>
+                </div>
+            </section>
+
+            <!-- Kabul Bölümü -->
+            <div class="acceptance-box">
+                <h3 class="acceptance-title">
+                    <i class="fas fa-check-circle"></i>
+                    Şartları Kabul
+                </h3>
+                <p>Platformumuzu kullanarak yukarıdaki tüm şartları ve koşulları okuduğunuzu, anladığınızı ve kabul ettiğinizi beyan edersiniz.</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    <i class="fas fa-info-circle"></i>
+                    Bu şartlar periyodik olarak güncellenebilir. Güncel versiyon her zaman bu sayfada yayınlanır.
+                </p>
+            </div>
+        </article>
+
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="/" class="back-to-home">
+                <i class="fas fa-arrow-left"></i>
+                Ana Sayfaya Dön
+            </a>
+            
+            <button onclick="window.print()" style="margin-left: 1rem; background: var(--gray-100); color: var(--gray-700); border: 1px solid var(--gray-300); padding: 0.75rem 1.5rem; border-radius: var(--radius-md); cursor: pointer; font-family: inherit; transition: var(--transition-base);">
+                <i class="fas fa-print"></i>
+                Yazdır
+            </button>
+        </div>
+    </main>
+
+    <footer class="terms-footer">
+        <div class="container">
+            <div class="footer-logo">Hiwork Türkiye</div>
+            <p>Profesyonel Uzaktan Çalışma Platformu</p>
+            
+            <div class="footer-links">
+                <a href="/privacy.html"><i class="fas fa-lock"></i> Gizlilik Politikası</a>
+                <a href="/compliance.html"><i class="fas fa-gavel"></i> Yasal Uyumluluk</a>
+                <a href="/cookies.html"><i class="fas fa-cookie-bite"></i> Çerez Politikası</a>
+                <a href="/faq.html"><i class="fas fa-question-circle"></i> Sıkça Sorulan Sorular</a>
+            </div>
+
+            <div class="footer-disclaimer">
+                <p>© 2024 Hiwork Türkiye Yazılım ve Danışmanlık Ltd. Şti. Tüm hakları saklıdır.</p>
+                <p>Bu kullanım şartları, Türk Borçlar Kanunu ve Elektronik Ticaret Kanunu'na uygun olarak hazırlanmıştır.</p>
+                <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Türkiye'nin her yerinden hizmet vermekteyiz
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sayfa yüklendiğinde
+        document.addEventListener('DOMContentLoaded', function() {
+            // Bölüm başlıklarına tıklanabilirlik ekle
+            const sectionTitles = document.querySelectorAll('.section-title');
+            sectionTitles.forEach(title => {
+                title.style.cursor = 'pointer';
+                title.addEventListener('click', function() {
+                    const section = this.closest('.section');
+                    section.classList.toggle('expanded');
+                });
+            });
+
+            // Hızlı navigasyon linklerine smooth scroll ekle
+            document.querySelectorAll('.nav-links a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Son güncelleme tarihini göster
+            const updateDate = new Date();
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            const formattedDate = updateDate.toLocaleDateString('tr-TR', options);
+            
+            // Kabul kutucuğuna animasyon ekle
+            const acceptanceBox = document.querySelector('.acceptance-box');
+            if (acceptanceBox) {
+                acceptanceBox.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = 'var(--shadow-lg)';
+                });
+                
+                acceptanceBox.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            }
+
+            // Yazdırma butonu için tooltip ekle
+            const printButton = document.querySelector('button[onclick="window.print()"]');
+            if (printButton) {
+                printButton.addEventListener('mouseenter', function() {
+                    this.title = "Bu sayfayı yazdırmak için tıklayın";
+                });
+            }
+        });
+
+        // Sayfa scroll olduğunda aktif bölümü vurgula
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    currentSection = '#' + section.id;
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.style.fontWeight = 'normal';
+                link.style.background = 'transparent';
+                
+                if (link.getAttribute('href') === currentSection) {
+                    link.style.fontWeight = '600';
+                    link.style.background = 'rgba(227, 10, 23, 0.1)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
