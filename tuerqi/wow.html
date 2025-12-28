@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="tr-TR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımızda & İletişim - Hiwork Türkiye</title>
+    <style>
+        /* 土耳其风格配色 */
+        :root {
+            --primary: #E30A17; /* 土耳其国旗红 */
+            --secondary: #C10713; /* 深土耳其红 */
+            --accent: #FF6B35; /* 活力的橙色 */
+            --light: #FFFFFF;
+            --dark: #1A1A2E; /* 深蓝黑色背景 */
+            --gray-50: #F8F9FA;
+            --gray-100: #E9ECEF;
+            --gray-200: #DEE2E6;
+            --gray-300: #CED4DA;
+            --gray-600: #6C757D;
+            --gray-700: #495057;
+            --gray-800: #343A40;
+            --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary));
+            --gradient-accent: linear-gradient(135deg, var(--accent), #FF8C42);
+            --gradient-dark: linear-gradient(135deg, var(--dark), #2D2D44);
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --radius-sm: 5px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+            --shadow-sm: 0 2px 5px rgba(227, 10, 23, 0.1);
+            --shadow-md: 0 4px 10px rgba(227, 10, 23, 0.15);
+            --shadow-lg: 0 8px 25px rgba(227, 10, 23, 0.2);
+            --shadow-glow: 0 0 15px rgba(227, 10, 23, 0.3);
+            --transition-fast: 0.15s ease;
+            --transition-base: 0.25s ease;
+            --transition-slow: 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background-color: var(--light);
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100 50c-15 0-30 15-30 30s15 30 30 30 30-15 30-30-15-30-30-30z' fill='%23E30A17' fill-opacity='0.02'/%3E%3Cpath d='M60 80c-10 0-20 10-20 20s10 20 20 20 20-10 20-20-10-20-20-20z' fill='%23C10713' fill-opacity='0.02'/%3E%3C/svg%3E");
+            background-size: 300px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部样式 */
+        .wow-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 4rem 0 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .wow-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .wow-header .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .wow-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition-base);
+        }
+
+        .wow-logo:hover {
+            transform: translateY(-3px);
+        }
+
+        .wow-logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary) 50%, var(--light) 50%, var(--light) 100%);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .wow-logo-icon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            transform: translate(-50%, 80%);
+        }
+
+        .wow-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+            line-height: 1.1;
+        }
+
+        @media (max-width: 768px) {
+            .wow-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        .wow-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        /* 导航标签 */
+        .section-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition-base);
+            border: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-tab:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-tab.active {
+            background: white;
+            color: var(--primary);
+            border-color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* 主要内容区域 */
+        .wow-main {
+            padding: 3rem 0;
+        }
+
+        /* Hakkımızda Bölümü */
+        #aboutus {
+            scroll-margin-top: 100px;
+        }
+
+        .about-section {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 3rem;
+            border: 1px solid var(--gray-200);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient-primary);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-full);
+        }
+
+        /* Misyon & Vizyon Grid */
+        .mission-vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .mission-card, .vision-card {
+            background: linear-gradient(135deg, rgba(227, 10, 23, 0.05), rgba(255, 107, 53, 0.05));
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            text-align: center;
+            transition: var(--transition-base);
+            border: 1px solid rgba(227, 10, 23, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-card:hover, .vision-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mission-card::before, .vision-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-primary);
+        }
+
+        .mission-icon, .vision-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .mission-card h3, .vision-card h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Değerlerimiz */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-base);
+            border: 1px solid var(--gray-200);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .value-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* İstatistikler */
+        .stats-section {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 4rem 0;
+            margin: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Ekip Üyeleri */
+        .team-section {
+            margin: 4rem 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+            border: 1px solid var(--gray-200);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .member-photo {
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .member-info {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .member-name {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            color: var(--gray-600);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* İletişim Bölümü */
+        #contactus {
+            scroll-margin-top: 100px;
+        }
+
+        .contact-section {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 3rem;
+            border: 1px solid var(--gray-200);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient-accent);
+        }
+
+        /* İletişim Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        /* İletişim Bilgileri */
+        .contact-info {
+            background: linear-gradient(135deg, rgba(227, 10, 23, 0.05), rgba(255, 107, 53, 0.05));
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            border: 1px solid rgba(227, 10, 23, 0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-base);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-details p {
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        .contact-details a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition-fast);
+        }
+
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+
+        /* İletişim Formu */
+        .contact-form {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-200);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1.5px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            transition: var(--transition-fast);
+            background: white;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(227, 10, 23, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition-base);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Sosyal Medya */
+        .social-section {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(227, 10, 23, 0.03), rgba(255, 107, 53, 0.03));
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(227, 10, 23, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: var(--transition-base);
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Harita Bölümü */
+        .map-section {
+            margin: 3rem 0;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* SSS Bölümü */
+        .faq-section {
+            margin: 4rem 0;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+            transition: var(--transition-base);
+        }
+
+        .faq-item.active {
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            color: var(--dark);
+            background: var(--gray-50);
+        }
+
+        .faq-question:hover {
+            background: var(--gray-100);
+        }
+
+        .faq-icon {
+            transition: var(--transition-base);
+            color: var(--primary);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--gray-700);
+            line-height: 1.6;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        .wow-footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+            text-align: center;
+            border-top: 3px solid var(--primary);
+            margin-top: 4rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+            display: inline-block;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition-base);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            background: rgba(227, 10, 23, 0.2);
+        }
+
+        .footer-disclaimer {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            max-width: 800px;
+            margin: 2rem auto 0;
+            line-height: 1.6;
+        }
+
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: var(--transition-base);
+            border: 2px solid transparent;
+        }
+
+        .back-to-home:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        /* Animasyonlar */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-section, .contact-section {
+                padding: 2rem;
+            }
+            
+            .mission-vision-grid,
+            .values-grid,
+            .team-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-tab {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Yazdırma Stilleri */
+        @media print {
+            .wow-header, .wow-footer, .section-nav, .submit-btn, .social-section, .map-section {
+                display: none;
+            }
+            
+            .about-section, .contact-section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="wow-header">
+        <div class="container">
+            <a href="/" class="wow-logo">
+                <div class="wow-logo-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                Hiwork Türkiye
+            </a>
+            <h1 class="wow-title">Türkiye'nin Uzaktan Çalışma Lideri</h1>
+            <p class="wow-subtitle">Binlerce Türk profesyoneli yüksek maaşlı uzaktan çalışma fırsatlarıyla buluşturuyoruz. Misyonumuz, Türkiye'deki yetenekleri global iş fırsatlarıyla buluşturmak.</p>
+            
+            <!-- Navigasyon Tabları -->
+            <div class="section-nav">
+                <a href="#aboutus" class="nav-tab active">
+                    <i class="fas fa-users"></i>
+                    Hakkımızda
+                </a>
+                <a href="#contactus" class="nav-tab">
+                    <i class="fas fa-headset"></i>
+                    İletişim
+                </a>
+                <a href="/" class="nav-tab">
+                    <i class="fas fa-home"></i>
+                    Ana Sayfa
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="wow-main">
+        <div class="container">
+            <!-- Hakkımızda Bölümü -->
+            <section id="aboutus" class="about-section animate-in">
+                <h2 class="section-title">Hakkımızda</h2>
+                
+                <div class="about-content">
+                    <p>Hiwork Türkiye olarak 2024 yılında, Türkiye'deki yetenekli profesyonelleri dünyanın en iyi uzaktan çalışma fırsatlarıyla buluşturmak amacıyla yola çıktık.</p>
+                    
+                    <p style="margin-top: 1.5rem;">Kuruluşumuzdan bu yana, 2.500'den fazla Türk profesyoneli yüksek maaşlı uzaktan pozisyonlara yerleştirdik. 110'dan fazla onaylı şirketle işbirliği yaparak, Türkiye'nin en güvenilir uzaktan çalışma platformu olduk.</p>
+
+                    <!-- Misyon & Vizyon -->
+                    <div class="mission-vision-grid">
+                        <div class="mission-card animate-in delay-1">
+                            <div class="mission-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <h3>Misyonumuz</h3>
+                            <p>Türkiye'deki yetenekleri, coğrafi sınırlar olmaksızın dünya standartlarında iş fırsatlarıyla buluşturmak. Her Türk profesyonelinin yeteneğine göre en iyi ücreti almasını sağlamak.</p>
+                        </div>
+                        
+                        <div class="vision-card animate-in delay-2">
+                            <div class="vision-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h3>Vizyonumuz</h3>
+                            <p>2027 yılına kadar Türkiye'nin en büyük uzaktan çalışma ekosistemini oluşturmak. 10.000+ Türk profesyoneli uluslararası standartlarda işlerle buluşturmak.</p>
+                        </div>
+                    </div>
+
+                    <!-- Değerlerimiz -->
+                    <div style="margin-top: 4rem;">
+                        <h3 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 2rem; text-align: center;">Değerlerimiz</h3>
+                        <div class="values-grid">
+                            <div class="value-card animate-in delay-1">
+                                <div class="value-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h4>Şeffaflık</h4>
+                                <p>Her adımda açık ve şeffaf iletişim kurarız. Gizli ücret veya koşul yoktur.</p>
+                            </div>
+                            
+                            <div class="value-card animate-in delay-2">
+                                <div class="value-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <h4>Güven</h4>
+                                <p>Kullanıcılarımızın güvenini en değerli varlığımız olarak görürüz.</p>
+                            </div>
+                            
+                            <div class="value-card animate-in delay-3">
+                                <div class="value-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h4>İnovasyon</h4>
+                                <p>Sürekli gelişim ve yenilikçi çözümlerle hizmet kalitemizi artırırız.</p>
+                            </div>
+                            
+                            <div class="value-card animate-in delay-4">
+                                <div class="value-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <h4>Toplumsal Fayda</h4>
+                                <p>Türkiye ekonomisine ve bireylerin kariyer gelişimine katkı sağlarız.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- İstatistikler -->
+            <section class="stats-section animate-in">
+                <div class="container">
+                    <h2 style="color: white; font-size: 2.2rem; margin-bottom: 3rem; text-align: center;">Başarı Hikayemiz</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">2,500+</div>
+                            <div class="stat-label">Türk Profesyonel İşe Alındı</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">110+</div>
+                            <div class="stat-label">Onaylı İşveren Şirket</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">75M+ ₺</div>
+                            <div class="stat-label">Çalışanlara Ödenen Maaş</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">4.9/5</div>
+                            <div class="stat-label">Kullanıcı Memnuniyeti</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ekip Üyeleri -->
+            <section class="team-section animate-in">
+                <h2 class="section-title" style="text-align: center;">Ekibimiz</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: var(--gray-700);">
+                    Deneyimli ekibimiz, Türkiye'nin en iyi uzaktan çalışma platformunu oluşturmak için gece gündüz çalışıyor.
+                </p>
+                
+                <div class="team-grid">
+                    <div class="team-member animate-in delay-1">
+                        <div class="member-photo">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Ahmet Yılmaz</h3>
+                            <p class="member-role">Kurucu & CEO</p>
+                            <p style="color: var(--gray-600); font-size: 0.9rem;">15+ yıllık teknoloji ve insan kaynakları deneyimi</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member animate-in delay-2">
+                        <div class="member-photo">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Zeynep Kaya</h3>
+                            <p class="member-role">İK Direktörü</p>
+                            <p style="color: var(--gray-600); font-size: 0.9rem;">10+ yıllık insan kaynakları ve kariyer koçluğu deneyimi</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member animate-in delay-3">
+                        <div class="member-photo">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Mehmet Demir</h3>
+                            <p class="member-role">Teknoloji Direktörü</p>
+                            <p style="color: var(--gray-600); font-size: 0.9rem;">12+ yıllık yazılım geliştirme ve AI deneyimi</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- İletişim Bölümü -->
+            <section id="contactus" class="contact-section animate-in">
+                <h2 class="section-title">İletişim</h2>
+                <p style="margin-bottom: 2rem; color: var(--gray-700);">Size nasıl yardımcı olabileceğimizi konuşalım. Her türlü soru, görüş ve öneriniz için bize ulaşabilirsiniz.</p>
+                
+                <div class="contact-grid">
+                    <!-- İletişim Bilgileri -->
+                    <div class="contact-info animate-in delay-1">
+                        <h3 style="color: var(--primary); margin-bottom: 1.5rem; font-size: 1.5rem;">İletişim Bilgilerimiz</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Adres</h4>
+                                <p>Maslak Mah. Büyükdere Cad. No:123<br>
+                                Sky Tower Kat:15<br>
+                                Şişli/İstanbul - TÜRKİYE</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Telefon</h4>
+                                <p>+90 850 123 4567</p>
+                                <small>Hafta içi 09:00-18:00</small>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>E-posta</h4>
+                                <p><a href="mailto:info@hiworkturkiye.whhbhc.xyz">info@hiworkturkiye.whhbhc.xyz</a></p>
+                                <p><a href="mailto:destek@hiworkturkiye.whhbhc.xyz">destek@hiworkturkiye.whhbhc.xyz</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Çalışma Saatleri</h4>
+                                <p>Pazartesi - Cuma: 09:00 - 18:00</p>
+                                <p>Cumartesi: 10:00 - 16:00</p>
+                                <p>Pazar: Kapalı</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- İletişim Formu -->
+                    <div class="contact-form animate-in delay-2">
+                        <h3 style="color: var(--primary); margin-bottom: 1.5rem; font-size: 1.5rem;">Mesaj Gönderin</h3>
+                        
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Adınız Soyadınız *</label>
+                                <input type="text" id="name" class="form-control" placeholder="Adınız ve soyadınız" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">E-posta Adresiniz *</label>
+                                <input type="email" id="email" class="form-control" placeholder="ornek@email.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Telefon Numaranız</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="(5XX) XXX-XXXX">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Konu *</label>
+                                <select id="subject" class="form-control" required>
+                                    <option value="">Konu seçiniz</option>
+                                    <option value="general">Genel Soru</option>
+                                    <option value="support">Teknik Destek</option>
+                                    <option value="partnership">İşbirliği Teklifi</option>
+                                    <option value="career">Kariyer Fırsatları</option>
+                                    <option value="feedback">Geri Bildirim</option>
+                                    <option value="other">Diğer</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" class="form-label">Mesajınız *</label>
+                                <textarea id="message" class="form-control" placeholder="Mesajınızı buraya yazın..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Mesajı Gönder
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sosyal Medya -->
+            <section class="social-section animate-in">
+                <h3 style="color: var(--primary); font-size: 1.8rem; margin-bottom: 1rem;">Bizi Takip Edin</h3>
+                <p style="color: var(--gray-700); max-width: 600px; margin: 0 auto;">En güncel iş fırsatları ve kariyer ipuçları için sosyal medya hesaplarımızı takip edin.</p>
+                
+                <div class="social-links">
+                    <a href="https://linkedin.com/company/hiworkturkiye" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://twitter.com/hiworkturkiye" class="social-link" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://instagram.com/hiworkturkiye" class="social-link" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://facebook.com/hiworkturkiye" class="social-link" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://youtube.com/@hiworkturkiye" class="social-link" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Harita -->
+            <section class="map-section animate-in">
+                <div class="map-overlay">
+                    <h3 style="font-size: 2rem; margin-bottom: 1rem; color: white;">İstanbul Ofisimiz</h3>
+                    <p style="max-width: 600px; margin: 0 auto 1.5rem; font-size: 1.1rem;">
+                        Maslak finans merkezindeki ofisimizde sizleri ağırlamaktan mutluluk duyarız. Randevu alarak ziyaret edebilirsiniz.
+                    </p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: var(--radius-md);">
+                            <i class="fas fa-subway"></i>
+                            <p style="margin-top: 0.5rem;">Metro: M2 Seyrantepe</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: var(--radius-md);">
+                            <i class="fas fa-bus"></i>
+                            <p style="margin-top: 0.5rem;">Otobüs: 25G, 29M</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: var(--radius-md);">
+                            <i class="fas fa-car"></i>
+                            <p style="margin-top: 0.5rem;">Otopark: Bina içi</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SSS -->
+            <section class="faq-section animate-in">
+                <h2 class="section-title" style="text-align: center;">Sıkça Sorulan Sorular</h2>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Ofisinizi ziyaret etmek için randevu almalı mıyım?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Evet, ofisimizi ziyaret etmek için önceden randevu almanız gerekmektedir. Randevu almak için info@hiworkturkiye.whhbhc.xyz adresine e-posta gönderebilir veya 0850 123 4567 numaralı telefonu arayabilirsiniz.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Kariyer fırsatlarınız nelerdir?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Hiwork Türkiye'de sürekli büyüyen bir ekibiz. Güncel iş ilanlarımız için kariyer@hiworkturkiye.whhbhc.xyz adresine CV'nizi gönderebilirsiniz. Teknoloji, pazarlama, insan kaynakları ve müşteri hizmetleri alanlarında pozisyonlarımız bulunmaktadır.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>İşbirliği teklifleriniz nelerdir?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>İşveren şirketler, eğitim kurumları ve diğer potansiyel iş ortakları için çeşitli işbirliği modellerimiz bulunmaktadır. İşbirliği teklifleriniz için partnership@hiworkturkiye.whhbhc.xyz adresinden bizimle iletişime geçebilirsiniz.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Basın ve medya iletişimi için kime ulaşabilirim?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Basın ve medya iletişimi için press@hiworkturkiye.whhbhc.xyz adresine e-posta gönderebilirsiniz. Basın bültenleri, röportaj talepleri ve diğer medya ilişkileri için bu adresi kullanabilirsiniz.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Geri Dönüş Butonu -->
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="/" class="back-to-home">
+                    <i class="fas fa-arrow-left"></i>
+                    Ana Sayfaya Dön
+                </a>
+                
+                <button onclick="window.print()" style="margin-left: 1rem; background: var(--gray-100); color: var(--gray-700); border: 1px solid var(--gray-300); padding: 0.75rem 1.5rem; border-radius: var(--radius-md); cursor: pointer; font-family: inherit; transition: var(--transition-base);">
+                    <i class="fas fa-print"></i>
+                    Bu Sayfayı Yazdır
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="wow-footer">
+        <div class="container">
+            <div class="footer-logo">Hiwork Türkiye</div>
+            <p style="color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 1.5rem;">
+                Türkiye'nin önde gelen uzaktan çalışma platformu. 2024'ten beri Türk profesyonellerini global iş fırsatlarıyla buluşturuyoruz.
+            </p>
+            
+            <div class="footer-links">
+                <a href="/privacy.html"><i class="fas fa-lock"></i> Gizlilik Politikası</a>
+                <a href="/userterms.html"><i class="fas fa-file-contract"></i> Kullanım Şartları</a>
+                <a href="/compliance.html"><i class="fas fa-gavel"></i> Yasal Uyumluluk</a>
+                <a href="/faq.html"><i class="fas fa-question-circle"></i> SSS</a>
+                <a href="#contactus"><i class="fas fa-headset"></i> İletişim</a>
+            </div>
+
+            <div class="footer-disclaimer">
+                <p>© 2024 Hiwork Türkiye Yazılım ve Danışmanlık Ltd. Şti. Tüm hakları saklıdır.</p>
+                <p>MERSIS No: 0123-4567-8901-2345 | Vergi No: 1234567890</p>
+                <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Türkiye'nin her yerinden, dünyanın her yerine hizmet veriyoruz.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sayfa yüklendiğinde
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animasyonları başlat
+            const animatedElements = document.querySelectorAll('.animate-in');
+            animatedElements.forEach((el, index) => {
+                el.style.opacity = '0';
+                setTimeout(() => {
+                    el.style.animation = 'fadeInUp 0.6s ease forwards';
+                }, index * 100);
+            });
+
+            // Navigasyon tabları
+            const navTabs = document.querySelectorAll('.nav-tab');
+            navTabs.forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    if (!this.href.includes('#')) return;
+                    
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    
+                    // Aktif tabı güncelle
+                    navTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Scroll et
+                    if (targetId.startsWith('#')) {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Aktif bölümü takip et
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('#aboutus, #contactus');
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 150;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        currentSection = '#' + section.id;
+                    }
+                });
+                
+                // Aktif tabı güncelle
+                navTabs.forEach(tab => {
+                    if (tab.getAttribute('href') === currentSection) {
+                        tab.classList.add('active');
+                    } else if (tab.getAttribute('href').startsWith('#')) {
+                        tab.classList.remove('active');
+                    }
+                });
+            });
+
+            // İletişim formu
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Form verilerini al
+                    const formData = {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        subject: document.getElementById('subject').value,
+                        message: document.getElementById('message').value
+                    };
+                    
+                    // Burada form verilerini gönderebilirsiniz
+                    // Örnek: fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
+                    
+                    // Başarı mesajı göster
+                    alert('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.');
+                    contactForm.reset();
+                });
+            }
+
+            // SSS açılır/kapanır
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const item = this.parentElement;
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Yazdırma butonu tooltip
+            const printButton = document.querySelector('button[onclick="window.print()"]');
+            if (printButton) {
+                printButton.addEventListener('mouseenter', function() {
+                    this.title = "Bu sayfayı yazdırmak için tıklayın";
+                });
+                
+                printButton.addEventListener('click', function() {
+                    // Yazdırma öncesi uyarı
+                    console.log('Sayfa yazdırılıyor...');
+                });
+            }
+
+            // Sosyal medya linkleri için yeni sekme aç
+            document.querySelectorAll('.social-link').forEach(link => {
+                link.setAttribute('target', '_blank');
+                link.setAttribute('rel', 'noopener noreferrer');
+            });
+        });
+
+        // Sayfa scroll olduğunda header'ı küçült
+        let lastScroll = 0;
+        const header = document.querySelector('.wow-header');
+        
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                if (currentScroll > lastScroll) {
+                    // Aşağı scroll
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    // Yukarı scroll
+                    header.style.transform = 'translateY(0)';
+                }
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
